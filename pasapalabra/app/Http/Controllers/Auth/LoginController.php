@@ -32,17 +32,21 @@ class LoginController extends Controller
      *
      * @return void
      */
+    public function authenticated()
+    {
+    if(auth()->user()->email="admin@gmail.com"){
+        return redirect('/level');
+    } 
+
+    return redirect('/ranking');
+    }
+    
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectPath(){
-        
-        if (auth()->user()->email="admin@gmail.com") {
-            return "/administrar";
-        }
+    
 
-        return "/home";
-    }
+
 }
