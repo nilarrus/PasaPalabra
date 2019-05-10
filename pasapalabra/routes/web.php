@@ -19,11 +19,10 @@
 
 Auth::routes();
 //Pagina Login/inicial
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
 
-
+//Pagina admin
 Route::get('/admin', 'pasaControlador@index');
-
 
 //Pagina Level
 Route::get('/level','LevelController@index')->name('Level_index');
