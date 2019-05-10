@@ -1,11 +1,11 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 @section('content')
 <!-- Valores pasados por parametro de dificultad de timer-->
 <body>
 <section class="game">
     <div class="circle-container">
-            <div class="title-circle">
-                    <p>PASAPALABRA</p>
+            <div class="title-container">
+                    <p class="title">PASAPALABRA</p>
                 </div>
                 <ul class="circle">
                     <li class="item">A</li>

@@ -16,12 +16,15 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- JQuery -->
+    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/game.css') }}">
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
     
 </head>
@@ -30,9 +33,6 @@
         <b><nav  class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ ( 'Pasapalabra') }}  
-                </a>
-                <a class="navbar-brand" target="_blank" href="{{ url('/ranking') }}">
-                    {{ ( 'Rankings') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
