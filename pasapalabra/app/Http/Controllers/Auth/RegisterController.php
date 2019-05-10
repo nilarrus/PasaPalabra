@@ -68,14 +68,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
-
-    public function redirectPath(){
-        if (auth()->user()->email='admin@gmail.com') {
-            return '/administrar';
         }
-
-        return '/home';
-    }
     
 }

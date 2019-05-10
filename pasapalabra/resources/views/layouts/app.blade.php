@@ -24,7 +24,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <!-- <link rel="stylesheet" href="{{ asset('css/game.css') }}"> -->
+
+   <!-- <link rel="stylesheet" href="{{ asset('css/game.css') }}">-->
+
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
     
 </head>
