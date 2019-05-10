@@ -34,12 +34,14 @@ class LoginController extends Controller
      */
     public function authenticated()
     {
-    if(auth()->user()->email="admin@gmail.com"){
+    if(auth()->user()->email=="admin@gmail.com"){
         return redirect('/level');
     } 
 
     return redirect('/ranking');
     }
+
+
     
     public function __construct()
     {

@@ -15,7 +15,7 @@
 <br>
     <div class="row">
       <div class="col text-center">
-        <a class="btn btn-success" href="#" >FACIL</a>
+        <a class="btn btn-success" href="{{route('Game_index')}}" >FACIL</a>
         <div>hola</div>
       </div>
       <div class="col text-center">
