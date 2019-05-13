@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class pasaControlador extends Controller
+class admController extends Controller
 {
 
 

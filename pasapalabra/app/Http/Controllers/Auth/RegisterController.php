@@ -31,6 +31,10 @@ class RegisterController extends Controller
     //protected $redirectTo = '/level';
 
     /**
+     * 
+     */
+    
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -43,8 +47,9 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    
 
-    public function authenticated()
+    public function registered()
     {
     if(auth()->user()->email=="admin@gmail.com"){
         return redirect('/adm');
