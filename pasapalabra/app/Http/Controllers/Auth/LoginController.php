@@ -35,10 +35,10 @@ class LoginController extends Controller
     public function authenticated()
     {
     if(auth()->user()->email=="admin@gmail.com"){
-        return redirect('/level');
+        return redirect('/adm');
     } 
 
-    return redirect('/ranking');
+    return redirect('/level');
     }
 
 
