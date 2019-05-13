@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Palabras;
+use DB;
+use Exception;
 
 class admController extends Controller
 {
@@ -21,7 +24,9 @@ class admController extends Controller
     public function index()
     {
         //
-        return view('windows.adm');
+        $palabras = Palabras::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);
+        
+        return view('windows.adm',array('palabras'=>$palabras))->render();
     }
 
     /**
