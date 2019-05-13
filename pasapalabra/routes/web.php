@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 
 //Pagina admin
-Route::get('/adm', 'admControlador@index')->name('adm_index');
+Route::get('/adm', 'admController@index')->name('adm_index');
 
 //Pagina Level
 Route::get('/level','LevelController@index')->name('Level_index');
