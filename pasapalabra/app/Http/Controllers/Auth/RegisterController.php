@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    //protected $redirectTo = '/level';
 
     /**
      * Create a new controller instance.
@@ -43,6 +43,16 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function authenticated()
+    {
+    if(auth()->user()->email=="admin@gmail.com"){
+        return redirect('/adm');
+    } 
+
+    return redirect('/level');
+    }
+
 
     /**
      * Get a validator for an incoming registration request.
