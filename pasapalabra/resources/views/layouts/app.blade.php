@@ -24,9 +24,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-    <!-- Styles -->
-
-   <!-- <link rel="stylesheet" href="{{ asset('css/game.css') }}">-->
+    <!-- Custom JS -->
+    <script type="text/javascript" src="{{ asset('js/game.js') }}"></script>
 
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
     
@@ -82,9 +81,8 @@
                 </div>
             
         </nav></b>
-        <main class="py-4">
             @yield('content')
-        </main>
+       
     </div>
 </body>
 </html>

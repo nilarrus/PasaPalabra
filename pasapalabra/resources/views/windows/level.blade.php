@@ -19,15 +19,15 @@
     <div class="row">
      
       <div class="col text-center">
-        <a class="btn btn-success" href="{{route('Game_index')}}" >FACIL</a>
+        <a class="btn btn-success" href="{{route('Game_index')}}?dif=facil">FACIL</a>
         <div>hola</div>
       </div>
       <div class="col text-center">
-        <a class="btn btn-warning" href="#" >NORMAL</a>
+        <a class="btn btn-warning" href="{{route('Game_index')}}?dif=normal" >NORMAL</a>
         <div>hola</div>
       </div>
       <div class="col text-center">
-        <a class="btn btn-danger" href="#" >DIFICIL</a>
+        <a class="btn btn-danger" href="{{route('Game_index')}}?dif=dificil" >DIFICIL</a>
         <div>hola</div>
      
       </div>
