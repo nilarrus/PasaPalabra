@@ -16,7 +16,9 @@ class Dbpasapalabra extends Migration
         //tabla Palabras
         Schema::create('Palabras', function (Blueprint $table) {
             $table->increments('id');
+            $table->String('Letra');
             $table->String('Palabra');
+            $table->String('Tipo');
             $table->String('Descripcion');
             $table->String('Dificultad');
             $table->timestamps();

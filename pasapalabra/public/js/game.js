@@ -1,4 +1,4 @@
-// estructura por concretar
+
 //tiempo de juego segun dificultad
 function tiempoJuego(timeTotal){
 	//console.log("tiempo de juego: "+timeTotal);
@@ -15,7 +15,6 @@ function tiempoJuego(timeTotal){
 	},1000);
 
 }
-
 //boton inicio del juego
 function inicio() {
 	$('.welcome-user').hide();//ocultamos el welcome + inicio 
