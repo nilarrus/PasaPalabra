@@ -1,25 +1,25 @@
 // estructura por concretar
-//timer
+//tiempo de juego segun dificultad
 function tiempoJuego(timeTotal){
-	console.log("tiempo de juego: "+timeTotal);
+	//console.log("tiempo de juego: "+timeTotal);
 	var tLeft = timeTotal;
 	var downTimer = setInterval(function () {
 		$(".timer").text(tLeft);
-		tLeft -=1;
 		if(tLeft<=0){
 			clearInterval(downTimer);
 			$(".timer").text(0);
-			console.log("fin Timer");
+			console.log("fin Juego");
+			$('.end-game').show();//mostramos el fin del juego
 		}
+		tLeft -=1;
 	},1000);
 
 }
 
-
 //boton inicio del juego
 function inicio() {
-	$('.welcome-user').hide();
-	$('.question-controls').show();
+	$('.welcome-user').hide();//ocultamos el welcome + inicio 
+	$('.question-controls').show();//mostramos los controles del juego
 	tiempoJuego($(".timer").text());
 }
 

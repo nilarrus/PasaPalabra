@@ -5,13 +5,6 @@
 <!-- css unico para esta pagina -->
 <link rel="stylesheet" href="{{asset('css/game.css')}}">
 <!-- js unico para esta pagina -->
-<?php
-    echo '<script>';
-    $i= $_GET['dif'];
-    //print($i);
-    echo 'console.log("'.$i.'");';
-     echo '</script>';
-?>
 <section class="game">
     <div class="circle-container">
             <ul class="scoreboard">
@@ -71,13 +64,27 @@
         </div>
     </div>
 </section>
+<?php
+$dificultad = $_GET['dif'];
+echo"
 <script>
-window.onload = function() {
-	$('.question-controls').hide();
-	$('.end-game').hide();
-	$('#begin').on("click",inicio);
-	$('.timer').text('150');
-};
-</script>
+    window.onload = function() {
+        newRosco('".$dificultad."');
+        $('.question-controls').hide();
+        $('.end-game').hide();
+        $('#begin').on('click',inicio);
+        if('".$dificultad."'=='facil'){
+            $('.timer').text('180');
+        }
+        if('".$dificultad."'=='normal'){
+            $('.timer').text('150');
+        }
+        if('".$dificultad."'=='dificil'){
+            $('.timer').text('90');
+        }
+    }; 
+</script>";
+?>
+
 </body>
 @endsection

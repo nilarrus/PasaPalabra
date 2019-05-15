@@ -18,7 +18,6 @@
 
     <!-- JQuery -->
     <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-    <script src="{{ asset('js/agregar.js') }}"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,7 +25,9 @@
 
     <!-- Custom JS -->
     <script type="text/javascript" src="{{ asset('js/game.js') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('js/agregar.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/rosco.js') }}"></script>
+    <!-- Custom CSS -->
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
     
 </head>
