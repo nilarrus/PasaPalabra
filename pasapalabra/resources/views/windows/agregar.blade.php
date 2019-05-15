@@ -8,7 +8,8 @@
             </div>
             <div class="panel-footer">
             	<form method="post" id="formAgregar" action="{{ route('agregar_store') }}">
-            		<input type="hidden" name="token" value="{{ csrf_field() }}" id="token">
+                {{ csrf_field() }}
+            		<input type="hidden" name="_token"  id="token" value="{{ csrf_token() }}">
                     <div class="form-group">
                       <label class="col-sm-6 col-form-label">Palabra</label>
                      <div class="col-sm-10">
