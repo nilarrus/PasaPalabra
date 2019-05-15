@@ -71,6 +71,13 @@
         </div>
     </div>
 </section>
-
+<script>
+window.onload = function() {
+	$('.question-controls').hide();
+	$('.end-game').hide();
+	$('#begin').on("click",inicio);
+	$('.timer').text('150');
+};
+</script>
 </body>
 @endsection
