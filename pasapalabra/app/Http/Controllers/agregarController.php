@@ -45,7 +45,7 @@ class agregarController extends Controller
      */
     public function store(Request $request)
     {
-    	if($request->$ajax()){
+    	if($request->ajax()){
     		Palabra::create($request->all());
     		return response()->json(["mensaje"=>"creado"]);
     	}
