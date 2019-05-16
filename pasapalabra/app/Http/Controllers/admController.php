@@ -24,9 +24,8 @@ class admController extends Controller
     public function index()
     {
         //
-        $palabras = Palabras::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);
+        return view("windows.adm");
         
-        return view('windows.adm',array('palabras'=>$palabras))->render();
     }
 
     /**
@@ -34,9 +33,15 @@ class admController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $palabras = Palabras::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);
+        if ($request->ajax()) {
+            
+            return response()->json(view('windows.pag',compact('palabras',$palabras))->render());
+        }
+        return view('windows.pag',compact('palabras',$palabras));
+
     }
 
     /**

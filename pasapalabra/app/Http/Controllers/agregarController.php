@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Palabras;
 use DB;
 use Exception;
+use Response;
+use pasapalabra\Http\Requests\Vpalabras\Vpalabras;
 
 class agregarController extends Controller
 {
@@ -46,10 +48,29 @@ class agregarController extends Controller
     public function store(Request $request)
     {
     	if($request->ajax()){
-    		Palabra::create($request->all());
-    		return response()->json(["mensaje"=>"creado"]);
+    		$result=Palabras::create($request->all());
+            if ($result) {
+                return response()->json(["success"=>"true"]);
+                # code...
+            }else{
+                return response()->json(["success"=>"true"]);
+            }
+    		
     	}
-        //
+        
+       /* $palabras = Palabras::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);*/
+
+
+         /*if($request->ajax())
+        {
+            Palabras::create([
+                'Palabra' => $request->input('Palabra'),
+                'Descripcion' => $request->input('descripcion'),
+                'Dificultad' => $request->input('descripcion'),
+            ]);
+            return response()->json(array('agregar' => $palabras));
+        }
+        return view('windows.adm')->with('agregar', $palabras);*/
     }
 
     /**

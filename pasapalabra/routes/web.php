@@ -23,6 +23,7 @@ Route::get('/', 'HomeController@index')->name('index');
 
 //Pagina admin
 Route::get('/adm', 'admController@index')->name('adm_index');
+Route::get('/an/{page?}', 'admController@create')->name('an_create');
 //Crear palabra
 Route::get('/agregar', 'agregarController@index')->name('agregar_index');
 Route::post('/agregar', 'agregarController@store')->name('agregar_store');
