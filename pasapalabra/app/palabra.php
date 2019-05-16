@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class palabra extends Model
 {
     //
+    protected $table = 'Palabras';
+    protected $fillable =  ['id','Palabra', 'Descripcion','Dificultad','created_at','modify_at'];
 }

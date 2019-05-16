@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Palabras;
+use App\palabra;
 use DB;
 use Exception;
 use Response;
-use pasapalabra\Http\Requests\Vpalabras\Vpalabras;
+use Pasapalabra\pasapalabra\app\Http\Requests\Vpalabras;
 
 class agregarController extends Controller
 {
@@ -45,7 +45,7 @@ class agregarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Vpalabras $request)
     {
     	if($request->ajax()){
     		$result=Palabras::create($request->all());

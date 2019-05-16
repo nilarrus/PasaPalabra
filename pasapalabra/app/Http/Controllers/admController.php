@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Palabras;
+use App\palabra;
 use DB;
 use Exception;
 
@@ -35,7 +35,7 @@ class admController extends Controller
      */
     public function create(Request $request)
     {
-        $palabras = Palabras::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);
+        $palabras = palabra::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);
         if ($request->ajax()) {
             
             return response()->json(view('windows.pag',compact('palabras',$palabras))->render());
