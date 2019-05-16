@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\palabra;
+use DB;
 
 class GameController extends Controller
 {
@@ -14,5 +17,22 @@ class GameController extends Controller
     public function index()
     {
         return view('windows.game');
+    }
+    public function palabrasRosco(Request $request)
+    {
+        $dif = $request->input('dificultad');
+        $letra = $request->input('letra');
+        try {
+            $palabras = DB::table('palabras')
+            ->where('Dificultad','LIKE',$dif)
+            ->where('Letra','LIKE',$letra)
+            ->orderBy('Letra','ASC')
+            ->get(['id','Letra','Descripcion','Dificultad']);
+            //var_dump($palabras);
+            return $palabras;
+        } catch (\Exception $ex) {
+            echo "\nError del server ".$ex;
+            //return back()->withErrors(['Error'=>'Error del servidor']);
+        }
     }
 }
