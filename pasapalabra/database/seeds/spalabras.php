@@ -3,7 +3,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Faker\Factory as Faker;
-use App\Palabras;
+use App\palabra;
 
 
 class spalabras extends Seeder
@@ -231,7 +231,7 @@ class spalabras extends Seeder
             $descripciones = $descripcion[$i];
             $dificultades = $dificultad[$i];
             $letras = $letra[$i];
-            Palabras::create([
+            palabra::create([
                 'Letra'      => $letras,
                 'Palabra' 	 =>	$palabras,
                 'Tipo'       => 'Empieza',

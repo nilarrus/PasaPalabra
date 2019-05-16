@@ -14,7 +14,7 @@ class Dbpasapalabra extends Migration
     public function up()
     {
         //tabla Palabras
-        Schema::create('Palabras', function (Blueprint $table) {
+        Schema::create('palabras', function (Blueprint $table) {
             $table->increments('id');
             $table->String('Letra');
             $table->String('Palabra');
@@ -24,7 +24,7 @@ class Dbpasapalabra extends Migration
             $table->timestamps();
         });
         //tabla Ranking
-        Schema::create('Ranking', function (Blueprint $table) {
+        Schema::create('rankings', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('Id_Usuario')->unsigned();
             $table->String('Correctas');
@@ -43,7 +43,7 @@ class Dbpasapalabra extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Palabras');
-        Schema::dropIfExists('Ranking');
+        Schema::dropIfExists('palabras');
+        Schema::dropIfExists('rankings');
     }
 }
