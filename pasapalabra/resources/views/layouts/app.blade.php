@@ -27,6 +27,7 @@
     <!-- Custom JS -->
     <script type="text/javascript" src="{{ asset('js/game.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/agregar.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/insert.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/rosco.js') }}"></script>
     <!-- Custom CSS -->
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">

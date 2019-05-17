@@ -16,36 +16,25 @@
 		}
 	})
 });*/
-
 /*$(document).ready(function(){
-	agregar();
+	$.ajaxSetup({
+		headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
+	})
 })
-var agregar=function(){
+$('#frm-insert').on('submit',function(e){
+	e.preventDefault();
+	var url=$(this).attr('action');
+	var post=$(this).attr('method');
+	var data=$(this).serialize();
+
 	$.ajax({
-		type:"get",
-		url:"{{ url("adm")}}",
+		type: post,
+		url: url,
+		data: data,
 		success:function(data){
-			$("#nPalabra").empty().html(data);
+			$("#msj-success").fadeIn();
 		}
 	})
-}*/
+	
+})*/
 
-
-  $(document).on("click",".pagination li a",function(e){
-  e.preventDefault();
-
-  var url=$(this).attr("href");
-  
-
-  console.log(url);
-
-  $.ajax({
-    type:'get',
-    url:url,
-    success: function(data){
-      $("#nPalabra").empty().html(data);
-    }
-  });
-
- 
-  });

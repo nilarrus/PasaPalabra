@@ -26,7 +26,7 @@ Route::get('/adm', 'admController@index')->name('adm_index');
 Route::get('/an/{page?}', 'admController@create')->name('an_create');
 //Crear palabra
 Route::get('/agregar', 'agregarController@index')->name('agregar_index');
-Route::post('/agregar', 'agregarController@store')->name('agregar_store');
+Route::post('/insertar', 'insertarController@store')->name('insertar_store');
 
 
 //Pagina Level

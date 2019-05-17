@@ -9,7 +9,7 @@ use Exception;
 use Response;
 use App\Http\Requests\Vpalabras;
 
-class agregarController extends Controller
+class insertarController extends Controller
 {
 
 
@@ -25,8 +25,7 @@ class agregarController extends Controller
      */
     public function index()
     {
-        //
-        return view("windows.agregar");
+        
     }
 
     /**
