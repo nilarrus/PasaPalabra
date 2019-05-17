@@ -26,7 +26,7 @@ class Vpalabras extends FormRequest
         return [
             //
             'Palabra' =>'required|String',
-            'Descripcion' =>'required|String'
+            'Descripcion' =>'required|String',
             'Dificultad' =>'required|String'
         ];
     }
