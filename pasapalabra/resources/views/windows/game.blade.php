@@ -49,14 +49,14 @@
             <a id="begin" class="btn" href="#">Iniciar</a>
         </div>
         <!-- Cotroles jugar -->
-        <div id="js--question-controls" class="question-controls" >
-            <span id="js--hint" class="hint">"Empieza/contiene"</span>
-            <p id="js--definition" class="definition">"Definicion"</p>
+        <div id="question-controls" class="question-controls" >
+            <span id="hint" class="hint">"Empieza/contiene"</span>
+            <p id="definition" class="definition">"Definicion"</p>
 
-            <input id="js--user-answer" type="text" placeholder="Introduce tu respuesta">
+            <input id="user-answer" type="text" placeholder="Introduce tu respuesta">
 
-            <a id="js--send" class="btn btn--blue" href="#">Enviar</a>
-            <a id="js--pasapalabra" class="btn" href="#">Pasapalabra</a>
+            <a id="send" class="btn btn--blue" href="#">Enviar</a>
+            <a id="pasapalabra" class="btn" href="#">Pasapalabra</a>
         </div>
         <!-- final -->
         <div class="end-game" > 
@@ -82,6 +82,8 @@ echo"
         if('".$dificultad."'=='dificil'){
             $('.timer').text('90');
         }
+        //$('#send').on('click',enviar);
+        //$('#pasapalabra').on('click',pasaPalabra);
     }; 
 </script>";
 ?>

@@ -40,3 +40,4 @@ Route::get('/game','GameController@index')->name('Game_index');
 //Segun la dificultad return un json difirente
 Route::get('/game/palabra', 'GameController@palabrasRosco')->name('Json_Palabas');
 
+
