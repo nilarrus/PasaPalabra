@@ -54,7 +54,7 @@ class agregarController extends Controller
             $pal->Descripcion = $request->input('Descripcion');
             $pal->Dificultad = $request->input('Dificultad');
             if($pal->save()){
-                return response(['msg'=>'Insertado Correctament']);
+                return response(['msg'=>'Insertado Correctamente']);
             }
 
     		
@@ -85,6 +85,7 @@ class agregarController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.

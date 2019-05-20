@@ -55,7 +55,7 @@ $('#frm-insert').on('submit',function(e){
 
                   {!!Form::label('Dificultad','Dificultad:')!!}
 
-                  <!-- {!!Form::select('Dificultad',['id'=>'Dificultad','class'=>'form-control'])!!}   -->
+                  <!-- {!!Form::text('Dificultad',null,['id'=>'Dificultad','class'=>'form-control'])!!}   -->
 
                   {!!Form::select('Dificultad',['Facil','Normal','Dificil'],['id'=>'Dificultad'],['class'=>'form-control'])!!}  
 

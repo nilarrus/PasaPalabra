@@ -9,7 +9,7 @@ use Exception;
 use Response;
 use App\Http\Requests\Vpalabras;
 
-class insertarController extends Controller
+class actualizarController extends Controller
 {
 
 
@@ -46,33 +46,25 @@ class insertarController extends Controller
      */
     public function store(Vpalabras $request)
     {
-    	if($request->ajax()){
-    		
-            $pal=new palabra();
-            $pal->Palabra = $request->input('Palabra');
-            $pal->Descripcion = $request->input('Descripcion');
-            $pal->Dificultad = $request->input('Dificultad');
-            if($pal->save()){
-                return response(['msg'=>'Insertado Correctament']);
-            }
+    	
 
     		
-    	}
-        
-       /* $palabras = Palabras::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);*/
-
-
-         /*if($request->ajax())
-        {
-            Palabras::create([
-                'Palabra' => $request->input('Palabra'),
-                'Descripcion' => $request->input('descripcion'),
-                'Dificultad' => $request->input('descripcion'),
-            ]);
-            return response()->json(array('agregar' => $palabras));
-        }
-        return view('windows.adm')->with('agregar', $palabras);*/
     }
+
+
+    public function update(Request $request)
+    {
+    	
+    	if ($request->ajax()) {
+    		return response(palabra::find($request->id));
+    	}
+
+
+    		
+    }
+        
+       
+    
 
     /**
      * Display the specified resource.
@@ -103,11 +95,7 @@ class insertarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *
