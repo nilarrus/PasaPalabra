@@ -27,7 +27,8 @@ Route::get('/an/{page?}', 'admController@create')->name('an_create');
 //Crear palabra
 Route::get('/agregar', 'agregarController@index')->name('agregar_index');
 Route::post('/insertar', 'insertarController@store')->name('insertar_store');
-
+Route::post('/delete', 'eliminarController@delete')->name('eliminar_delete');
+Route::get('/update', 'actualizarController@update')->name('actualizar_update');
 
 //Pagina Level
 Route::get('/level','LevelController@index')->name('Level_index');
