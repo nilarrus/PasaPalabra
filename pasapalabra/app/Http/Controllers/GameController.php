@@ -27,7 +27,7 @@ class GameController extends Controller
             ->where('Dificultad','LIKE',$dif)
             ->where('Letra','LIKE',$letra)
             ->orderBy('Letra','ASC')
-            ->get(['id','Letra','Descripcion','Dificultad']);
+            ->get(['id','Palabra','Tipo','Letra','Descripcion','Dificultad']);
             //var_dump($palabras);
             return $palabras;
         } catch (\Exception $ex) {

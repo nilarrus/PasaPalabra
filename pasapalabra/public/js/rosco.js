@@ -1,5 +1,6 @@
-var roscoJuego = [];
+roscoJuego = [];
 var letras = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z']
+//De 1 array de la misma letra y difucultad elige una palabra random
 function randomElement(elements) {
     if(elements.length<=1){
         return elements[0];
@@ -27,19 +28,11 @@ function ajaxPalabra(dif) {
              console.log("Ajax Fail: "+textStatus);
         });
     }
-   
-   console.log("el array del rosco es este: "+roscoJuego);
-
 }
-//formar el array del rosco con objetos {"id":id,"des":des};
+//formar el array del rosco con objetos {"id":id,"letra":Letra,"descripcion":des};
 function Rosco(dif) {
-    /*letras.forEach(letra => {
-        //console.log(palabra(dif,letra));
-        roscoJuego.push(palabra(dif,letra));
-    });
-    console.log(roscoJuego);*/
     ajaxPalabra(dif);
-    console.log(roscoJuego);
+    console.log("Rosco cargado");
 
 }
 //lanzamos la funcion de crear el array del rosco
@@ -48,5 +41,6 @@ function newRosco(dif) {
     Rosco(dif);
     if(roscoJuego.length != 0){
         console.log("Rosco: "+roscoJuego);
+        colocarPalabrasRosco(roscoJuego);
     }
 }
