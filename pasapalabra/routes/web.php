@@ -39,5 +39,5 @@ Route::get('/ranking','RangkingController@index')->name('Ranking_index');
 Route::get('/game','GameController@index')->name('Game_index');
 //Segun la dificultad return un json difirente
 Route::get('/game/palabra', 'GameController@palabrasRosco')->name('Json_Palabas');
-
-
+//envias un id para que el server te envie la palabra a la que tiene que comparar
+Route::get('/game/{id}','GameController@verificarPalabra')->name('Json_palabra');
