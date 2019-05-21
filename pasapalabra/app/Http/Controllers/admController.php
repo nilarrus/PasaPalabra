@@ -35,7 +35,7 @@ class admController extends Controller
      */
     public function create(Request $request)
     {
-        $palabras = palabra::select('id', 'Palabra', 'Descripcion','Dificultad')->paginate(5);
+        $palabras = palabra::select('id','Letra','Tipo','Palabra', 'Descripcion','Dificultad')->paginate(5);
         if ($request->ajax()) {
             
             return response()->json(view('windows.pag',compact('palabras',$palabras))->render());

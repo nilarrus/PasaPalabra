@@ -16,25 +16,7 @@
     })
   })
 
-  //Editar tabla
-  $(document).on('click','.btn-edit',function(e){
-    var id=$(this).val();
-    
-    $.ajax({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-      type: 'get',
-      url: "{{url('update')}}",
-      data: {id:id},
-      success:function(data){
-        var formUpdate=$("#frm-update");
-        formUpdate.find("#Palabra").val(data.Palabra);
-        formUpdate.find("#Descripcion").val(data.Descripcion);
-        formUpdate.find("#Dificultad").val(data.Dificultad);
-        $("#modalUpdate").modal("show");
-      }
-    })
-  })
+  
 
   
 </script>
@@ -46,8 +28,10 @@
                       <thead class="thead-">
                         <tr>
                           <th scope="col">Id</th>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Letra</th>
                           <th scope="col">Palabra</th>
-                          <th scope="col">Descripcion</th>
+                          
                           <th scope="col">Dificultad</th>
                           <th scope="col">Operaciones</th>
 
@@ -59,8 +43,10 @@
                       <tbody>
                         <tr class="id{{$dato->id}}">
                           <td>{{ $dato->id }}</td>
+                          <td>{{ $dato->Letra }}</td>
+                          <td>{{ $dato->Tipo }}</td>
                           <td>{{ $dato->Palabra }}</td>
-                          <td>{{ $dato->Descripcion }}</td>
+                          
                           <td>{{ $dato->Dificultad }}</td>
                           <td><button value="{{$dato->id}}" type="button" class="btn btn-primary btn-sm btn-edit">Editar</button> <button  type="button" class="btn btn-danger btn-sm btn-dell" value="{{$dato->id}}">Eliminar</button></td>
                           
@@ -75,4 +61,29 @@
               </div>
 @include('windows.update')
 </div>
+
+<script type="text/javascript">
+  //Editar tabla
+  $(document).on('click','.btn-edit',function(e){
+    var id=$(this).val();
+    
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+      type: 'get',
+      url: "{{url('update')}}",
+      data: {id:id},
+      cache: false,
+      success:function(data){
+        var formUpdate=$("#frm-update");
+        formUpdate.find("#Letra").text(data.Letra);
+        formUpdate.find("#Palabra").text(data.Palabra);
+        formUpdate.find("#Tipo").text(data.Tipo);
+        formUpdate.find("#Descripcion").text(data.Descripcion);
+        formUpdate.find("#Dificultad").text(data.Dificultad);
+        $("#modalUpdate").modal("show");
+      }
+    })
+  })
+</script>
 
