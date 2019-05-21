@@ -1,6 +1,8 @@
 var posicionRosco = 0;
 var letrasRosco = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
 var continuar = true;
+var aciertos = 0;
+var fallos = 0;
 //Recives 2 palabras y el return envia true si la palabra es igual
 function bienMal(palabraUser,palabraServer) {
 	if(palabraServer.toUpperCase() == palabraUser.toUpperCase()){
@@ -29,12 +31,21 @@ function VerificarPalabra(palabra,id) {
 		console.log(bienMal(palabra,res[0]['Palabra']));
 		if(bienMal(palabra,res[0]['Palabra'])){
 			$('.item')[posicionRosco].setAttribute('class','item item--success');
+			aciertos++;
 			
 		}else{
 			$('.item')[posicionRosco].setAttribute('class','item item--failure');
+			fallos++;
 		}
-		//falta eliminar palabra y hacer el pasa palabra y contar los aciertos
-		
+		//Eliminar palabra 
+		roscoJuego.splice(posicionRosco,1);
+
+		//Pasamos de palabra
+		//pasaPalabra();
+
+		//modificaos el marcador 
+		marcador = $('.score').text()-1;
+		$('.score').text(marcador);
 	 })
 	 .fail(function(jqXHR,textStatus){
 		 console.log("Ajax Fail: "+textStatus);
@@ -57,12 +68,15 @@ function enviar() {
 }
 //pasarpalabra en funcion de si aun no la a "dicho"
 function pasaPalabra(){
+	
 	if(roscoJuego.length-1==posicionRosco){
 		posicionRosco = 0;
 	}else{
 		posicionRosco++;
 	}
 	generarDescripcion(posicionRosco);
+	//limpiamos el input
+	$('#user-answer').val('');
 }
 
 //tiempo de juego segun dificultad
