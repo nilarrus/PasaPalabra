@@ -5,6 +5,7 @@
 @include('windows.errors')
 
 <script type="text/javascript">
+  //insertar palabras
   $(document).ready(function(){
   $.ajaxSetup({
     headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
@@ -45,9 +46,17 @@ $('#frm-insert').on('submit',function(e){
                 </div>
                 
 
+                  {!!Form::label('Letra','Letra')!!}
+
+                  {!!Form::text('Letra',null,['id'=>'Letra','class'=>'form-control'])!!}
+
                   {!!Form::label('Palabra','Palabra')!!}
 
                   {!!Form::text('Palabra',null,['id'=>'Palabra','class'=>'form-control'])!!}
+
+                  {!!Form::label('Tipo','Tipo')!!}
+
+                  {!!Form::text('Tipo',null,['id'=>'Tipo','class'=>'form-control'])!!}
 
                   {!!Form::label('Descripcion','Descripcion')!!}
 

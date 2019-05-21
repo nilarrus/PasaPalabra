@@ -40,6 +40,7 @@ var agregar=function(){
   console.log(url);
 
   $.ajax({
+  	headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
     type:'get',
     url:url,
     success: function(data){

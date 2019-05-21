@@ -49,7 +49,9 @@ class insertarController extends Controller
     	if($request->ajax()){
     		
             $pal=new palabra();
+            $pal->Letra = $request->input('Letra');
             $pal->Palabra = $request->input('Palabra');
+            $pal->Tipo = $request->input('Tipo');
             $pal->Descripcion = $request->input('Descripcion');
             $pal->Dificultad = $request->input('Dificultad');
             if($pal->save()){
