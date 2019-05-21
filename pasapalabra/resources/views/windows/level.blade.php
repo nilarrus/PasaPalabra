@@ -19,15 +19,15 @@
     <div class="row">
      
       <div class="col text-center">
-        <a class="btn btn-success" href="{{route('Game_index')}}?dif=facil">FACIL</a>
+        <a class="btn btn-success" href="{{route('Game_index')}}?dif=0">FACIL</a>
         <div>Tiempo 180s 3 min</div>
       </div>
       <div class="col text-center">
-        <a class="btn btn-warning" href="{{route('Game_index')}}?dif=normal" >NORMAL</a>
+        <a class="btn btn-warning" href="{{route('Game_index')}}?dif=1" >NORMAL</a>
         <div>Tiempo 150s 2,5 min</div>
       </div>
       <div class="col text-center">
-        <a class="btn btn-danger" href="{{route('Game_index')}}?dif=dificil" >DIFICIL</a>
+        <a class="btn btn-danger" href="{{route('Game_index')}}?dif=2" >DIFICIL</a>
         <div>Tiempo 90s 1,5 min</div>
      
       </div>

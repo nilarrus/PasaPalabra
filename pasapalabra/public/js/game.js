@@ -1,8 +1,25 @@
-var posicionRosco = 0;
-var letrasRosco = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
-var continuar = true;
+var posicionRosco = 0;//posiciondelRosco en la que estas
+var continuar = true;//control pasaPalabra
+//contadores
 var aciertos = 0;
 var fallos = 0;
+var downTimer;//timer
+
+// Avengers Fin del juego
+function endGame() {
+	//clearInterval(downTimer);
+	$('.question-controls').hide();
+	$('.timer').text(0);
+	$('.end-game').show();
+	$('#aciertos').text("Aciertos: "+aciertos);
+	$('#fallos').text("Fallos: "+fallos);
+}
+//resetear todo el juego al inicio
+function reset() {
+	$('.end-game').hide();
+	$('.welcome-user').show();
+}
+
 //Recives 2 palabras y el return envia true si la palabra es igual
 function bienMal(palabraUser,palabraServer) {
 	if(palabraServer.toUpperCase() == palabraUser.toUpperCase()){
@@ -25,27 +42,38 @@ function VerificarPalabra(palabra,id) {
 		data:{id:id}
 	})
 	 .done(function(res){
-
-		console.log("Li: "+roscoJuego[posicionRosco]["Relacion"]+"\nPalabra del server: "+res[0]['Palabra']
-					+"\nPalabra usuario: "+palabra); 
-		console.log(bienMal(palabra,res[0]['Palabra']));
-		if(bienMal(palabra,res[0]['Palabra'])){
-			$('.item')[posicionRosco].setAttribute('class','item item--success');
-			aciertos++;
-			
-		}else{
-			$('.item')[posicionRosco].setAttribute('class','item item--failure');
-			fallos++;
-		}
-		//Eliminar palabra 
-		roscoJuego.splice(posicionRosco,1);
-
-		//Pasamos de palabra
-		//pasaPalabra();
-
 		//modificaos el marcador 
 		marcador = $('.score').text()-1;
 		$('.score').text(marcador);
+
+		//console.log("Li: "+roscoJuego[posicionRosco]["Relacion"]+"\nPalabra del server: "+res[0]['Palabra']+"\nPalabra usuario: "+palabra); 
+		//console.log(bienMal(palabra,res[0]['Palabra']));
+		console.log("Tamaño actual: "+roscoJuego.length);
+		console.log("Posicion actual: "+posicionRosco);
+		if($('.score').text()==0){
+			console.log("fin");
+			endGame();
+		}else{
+			if(bienMal(palabra,res[0]['Palabra'])){
+				//console.log("Acierto Li: "+roscoJuego[posicionRosco]["Relacion"]);
+				//console.log(posicionRosco);
+				$('.item')[roscoJuego[posicionRosco]["Relacion"]].setAttribute('class','item item--success');
+				aciertos++;
+				
+			}else{
+				//console.log("Fallo Li: "+roscoJuego[posicionRosco]["Relacion"]);
+				$('.item')[roscoJuego[posicionRosco]["Relacion"]].setAttribute('class','item item--failure');
+				fallos++;
+			}
+			//Eliminar palabra 
+			roscoJuego.splice(posicionRosco,1);
+
+			
+
+			//Pasamos de palabra
+			pasaPalabra(false);
+		}	
+		
 	 })
 	 .fail(function(jqXHR,textStatus){
 		 console.log("Ajax Fail: "+textStatus);
@@ -67,16 +95,23 @@ function enviar() {
 
 }
 //pasarpalabra en funcion de si aun no la a "dicho"
-function pasaPalabra(){
-	
-	if(roscoJuego.length-1==posicionRosco){
-		posicionRosco = 0;
+function pasaPalabra(continuar){
+	if(continuar){
+		if(roscoJuego.length-1==posicionRosco){
+			posicionRosco = 0;
+		}else{
+			posicionRosco++;
+		}
+		generarDescripcion(posicionRosco);
+		//limpiamos el input
+		$('#user-answer').val('');
 	}else{
-		posicionRosco++;
+		generarDescripcion(posicionRosco);
+		//limpiamos el input
+		$('#user-answer').val('');
+		continuar = true;
 	}
-	generarDescripcion(posicionRosco);
-	//limpiamos el input
-	$('#user-answer').val('');
+	
 }
 
 //tiempo de juego segun dificultad
@@ -89,7 +124,7 @@ function tiempoJuego(timeTotal){
 			clearInterval(downTimer);
 			$(".timer").text(0);
 			console.log("fin Juego");
-			$('.end-game').show();//mostramos el fin del juego
+			endGame();
 		}
 		tLeft -=1;
 	},1000);
