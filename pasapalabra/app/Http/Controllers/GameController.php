@@ -35,4 +35,16 @@ class GameController extends Controller
             //return back()->withErrors(['Error'=>'Error del servidor']);
         }
     }
+    public function verificarPalabra(Request $request)
+    {
+        $id = $request->input('id');
+        try {
+            $palabraServer = DB::table('palabras')
+            ->where('id','LIKE',$id)
+            ->get(['Palabra']);
+            return $palabraServer;
+        } catch (\Exception $ex) {
+            echo "\nError del server ".$ex;
+        }
+    }
 }

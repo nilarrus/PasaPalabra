@@ -11,32 +11,32 @@
                     <li id="timer" class="timer"></li>
                     <li id="score" class="score">25</li>
                 </ul>
-                    <ul class="circle">
-                    <li class="item">A</li>
-                    <li class="item">B</li>
-                    <li class="item">C</li>
-                    <li class="item">D</li>
-                    <li class="item">E</li>
-                    <li class="item">F</li>
-                    <li class="item">G</li>
-                    <li class="item">H</li>
-                    <li class="item">I</li>
-                    <li class="item">J</li>
-                    <li class="item">K</li>
-                    <li class="item">L</li>
-                    <li class="item">M</li>
-                    <li class="item">N</li>
-                    <li class="item">O</li>
-                    <li class="item">P</li>
-                    <li class="item">Q</li>
-                    <li class="item">R</li>
-                    <li class="item">S</li>
-                    <li class="item">T</li>
-                    <li class="item">U</li>
-                    <li class="item">V</li>
-                    <li class="item">X</li>
-                    <li class="item">Y</li>
-                    <li class="item">Z</li>
+                    <ul  class="circle">
+                    <li id="0" class="item">A</li>
+                    <li id="1" class="item">B</li>
+                    <li id="2" class="item">C</li>
+                    <li id="3" class="item">D</li>
+                    <li id="4" class="item">E</li>
+                    <li id="5" class="item">F</li>
+                    <li id="6" class="item">G</li>
+                    <li id="7" class="item">H</li>
+                    <li id="8" class="item">I</li>
+                    <li id="9" class="item">J</li>
+                    <li id="10" class="item">K</li>
+                    <li id="11" class="item">L</li>
+                    <li id="12" class="item">M</li>
+                    <li id="13" class="item">N</li>
+                    <li id="14" class="item">O</li>
+                    <li id="15" class="item">P</li>
+                    <li id="16" class="item">Q</li>
+                    <li id="17" class="item">R</li>
+                    <li id="18" class="item">S</li>
+                    <li id="19" class="item">T</li>
+                    <li id="20" class="item">U</li>
+                    <li id="21" class="item">V</li>
+                    <li id="22" class="item">X</li>
+                    <li id="23" class="item">Y</li>
+                    <li id="24" class="item">Z</li>
                 </ul>
     </div>
     <div class="controls-container">
@@ -82,8 +82,9 @@ echo"
         if('".$dificultad."'=='dificil'){
             $('.timer').text('90');
         }
-        //$('#send').on('click',enviar);
-        //$('#pasapalabra').on('click',pasaPalabra);
+        $('#send').on('click',enviar);
+        $('#pasapalabra').on('click',pasaPalabra);
+        //console.log(roscoJuego);
     }; 
 </script>";
 ?>

@@ -22,7 +22,7 @@ class spalabras extends Seeder
             3 => 'Balon',
             4 => 'Caballo',
             5 => 'Cereza',
-            6 => 'Dados',
+            6 => 'Dado',
             7 => 'Doctor',
             8 => 'Espejo',
             9 => 'Embudo',
