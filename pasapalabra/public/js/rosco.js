@@ -1,4 +1,5 @@
 const roscoJuego = [];
+var dificultad;
 var letras = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z']
 //De 1 array de la misma letra y difucultad elige una palabra random
 function randomElement(elements) {
@@ -44,5 +45,6 @@ function Rosco(dif) {
 
 //lanzamos la funcion de crear el array del rosco
 function newRosco(dif) {
+    dificultad = dif;
     Rosco(dif);
 }
