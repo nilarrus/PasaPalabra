@@ -23,8 +23,20 @@ class actualizarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+         try
+        {
+            $pal = DB::table('palabras')->where('id', $id)->get();
+            
+            return view('windows.update', ['pal'=>$pal]);
+        }catch(Exception $e)
+        {
+            return back()->withErrors(['Error'=>'Error del servidor']);
+        }
+        
+        
+
         
     }
 
@@ -62,6 +74,8 @@ class actualizarController extends Controller
 
     		
     }
+
+   
         
        
     
@@ -83,9 +97,21 @@ class actualizarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
         //
+         
+            $pal=palabra::find($request->id);
+            $pal->Letra = $request->input('Letra');
+            $pal->Palabra = $request->input('Palabra');
+            $pal->Tipo = $request->input('Tipo');
+            $pal->Descripcion = $request->input('Descripcion');
+            $pal->Dificultad = $request->input('Dificultad');
+            $pal->save();
+            
+
+            return view("windows.adm");
+        
     }
 
     /**

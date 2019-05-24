@@ -29,6 +29,8 @@ Route::get('/agregar', 'agregarController@index')->name('agregar_index');
 Route::post('/insertar', 'insertarController@store')->name('insertar_store');
 Route::post('/delete', 'eliminarController@delete')->name('eliminar_delete');
 Route::get('/update', 'actualizarController@update')->name('actualizar_update');
+Route::get('/edit/{id}','actualizarController@index')->name('edit_index');
+Route::post('/edit','actualizarController@edit')->name('edit');
 
 //Pagina Level
 Route::get('/level','LevelController@index')->name('Level_index');

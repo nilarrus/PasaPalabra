@@ -16,6 +16,10 @@ class admController extends Controller
         $this->middleware('auth');
     }
 
+    public function Listar(Request $request){
+        
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -75,6 +79,7 @@ class admController extends Controller
     public function edit($id)
     {
         //
+        
     }
 
     /**

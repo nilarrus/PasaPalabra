@@ -13,7 +13,7 @@
       success:function(data){
         $('tbody tr.id'+id).remove();
       }
-    })
+    });
   })
 
   
@@ -24,7 +24,7 @@
 
 <div class="daP">
 <div class="card-body" >
-                  <table class="table table-hover">
+                  <table id="tabla" class="table table-hover">
                       <thead class="thead-">
                         <tr>
                           <th scope="col">Id</th>
@@ -48,7 +48,7 @@
                           <td>{{ $dato->Palabra }}</td>
                           
                           <td>{{ $dato->Dificultad }}</td>
-                          <td><button value="{{$dato->id}}" type="button" class="btn btn-primary btn-sm btn-edit">Editar</button> <button  type="button" class="btn btn-danger btn-sm btn-dell" value="{{$dato->id}}">Eliminar</button></td>
+                          <td><a href="{{route('edit_index',$dato->id)}}" value="{{$dato->id}}" type="button" class="btn btn-primary btn-sm btn-edit">Editar</a> <button  type="button" class="btn btn-danger btn-sm btn-dell" value="{{$dato->id}}">Eliminar</button></td>
                           
                           
                         </tr>
@@ -59,11 +59,21 @@
                        
                 <div id="PalabrasTabla">{!!$palabras->render()!!}</div>
               </div>
-@include('windows.update')
+
 </div>
 
 <script type="text/javascript">
+
+$(document).ready(function() {
+  
+  $("#tabla").DataTable();
+} );
   //Editar tabla
+  /*$(document).ready(function(){
+  $.ajaxSetup({
+    headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
+  })
+
   $(document).on('click','.btn-edit',function(e){
     var id=$(this).val();
     
@@ -73,17 +83,72 @@
       type: 'get',
       url: "{{url('update')}}",
       data: {id:id},
-      cache: false,
       success:function(data){
-        var formUpdate=$("#frm-update");
-        formUpdate.find("#Letra").text(data.Letra);
-        formUpdate.find("#Palabra").text(data.Palabra);
-        formUpdate.find("#Tipo").text(data.Tipo);
-        formUpdate.find("#Descripcion").text(data.Descripcion);
-        formUpdate.find("#Dificultad").text(data.Dificultad);
+        var formUpdate=$("#frm");
+        $("#id").val(data.id);
+        $("#Letra").val(data.Letra);
+        $("#Palabra").val(data.Palabra);
+        $("#Tipo").val(data.Tipo);
+        $("#Descripcion").val(data.Descripcion);
+        $("#Dificultad").val(data.Dificultad);
         $("#modalUpdate").modal("show");
       }
-    })
+    });
+  })*/
+
+
+/*$("#sub").click(function(){
+    var data=$(this).serialize();
+    var ruta="{{url('edit')}}";
+
+    $.ajax({
+      url: ruta,
+      headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')},
+      type: ruta,
+      data:data,
+      success: function(data){
+        
+          console.log(data);
+          $("#frm").trigger('reset');
+          $("#modalUpdate").modal('toggle');
+        
+      }
+    });
+});*/
+
+
+  /*$("#frm").on("submit",function(e){
+    e.preventDefault();
+    var id=$("#id").val();
+    var data=$(this).serialize();
+    var url=$(this).attr('action')+id;
+    var post=$(this).attr('method');
+    /*$.post(url,data,id,function(data){
+      console.log(data);
+      $("#frm").trigger('reset');
+      $("#modalUpdate").modal('toggle');
+      
+    })*/
+    /*$.ajax({
+      headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('consstent')},
+      type: post,
+      url: url,
+      data: data,
+      success:function(data){
+        
+        $("#frm").trigger('reset');
+        $("#modalUpdate").modal('toggle');
+        $("#msj-success").fadeIn();
+     
+    },
+    error: function(data){
+        console.log(data);
+      }
   })
+  })*/
+
+ 
+
+ 
 </script>
 

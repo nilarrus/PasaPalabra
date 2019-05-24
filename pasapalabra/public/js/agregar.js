@@ -30,7 +30,7 @@ var agregar=function(){
 	})
 }*/
 
-
+//Paginacion
   $(document).on("click",".pagination li a",function(e){
   e.preventDefault();
 
@@ -50,5 +50,7 @@ var agregar=function(){
 
  
   });
+
+
 
   
