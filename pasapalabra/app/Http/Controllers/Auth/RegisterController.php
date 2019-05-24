@@ -28,17 +28,36 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/level';
 
+    /**
+     * 
+     */
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+    
+
+
     public function __construct()
     {
         $this->middleware('guest');
     }
+    
+
+    public function registered()
+    {
+    if(auth()->user()->email=="admin@gmail.com"){
+        return redirect('/adm');
+    } 
+
+    return redirect('/level');
+    }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -68,5 +87,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
+        }
+    
 }

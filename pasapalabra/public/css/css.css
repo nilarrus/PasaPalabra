@@ -1,0 +1,25 @@
+body{
+    background-image: url('../images/ff.jpg');
+}
+.card-body{
+    padding: 1%!important;
+}
+#PalabrasTabla{
+    padding-left: 20%;
+}
+#caja{
+    padding-top: 1.5% !important;
+}
+.end-game{
+    color: white;
+    font-weight:bold;
+}
+#aciertos{
+    color: green;
+}
+#fallos{
+    color: red;
+}
+.descDif{
+    padding: 10%;
+}

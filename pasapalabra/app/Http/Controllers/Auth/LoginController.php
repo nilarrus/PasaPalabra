@@ -25,15 +25,27 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/level';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+    public function authenticated()
+    {
+        if(auth()->user()->email=="admin@gmail.com"){
+            return redirect('/adm');
+        } 
+
+    return redirect('/level');
+    }
+
+
+    
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
+
 }
