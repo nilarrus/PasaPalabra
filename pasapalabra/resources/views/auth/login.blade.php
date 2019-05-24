@@ -41,7 +41,7 @@
 
                         
 
-                         <div class="form-group row mb-0">
+                         <div class="form-group row mb-12">
                             <div class="col-md-6 offset-md-4">
                             
                                 <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" >
