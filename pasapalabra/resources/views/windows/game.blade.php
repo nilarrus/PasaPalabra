@@ -4,8 +4,8 @@
 <body>
 <!-- css unico para esta pagina -->
 <link rel="stylesheet" href="{{asset('css/game.css')}}">
-<!-- js unico para esta pagina -->
 <section class="game">
+    <!-- Dibujo del rosco -->
     <div class="circle-container">
             <ul class="scoreboard">
                     <li id="timer" class="timer"></li>
@@ -40,12 +40,12 @@
                 </ul>
     </div>
     <div class="controls-container">
-        <!-- Turorial -->
+        <!-- controles Turorial -->
         <div class="welcome-user">
             <h4>Bienvenidos al Pasapalabra</h4>
             <p>Juego basado en el programa de tevelision del mismo nombre, las reglas son muy sencillas:</p>
             <p>Se mostrara por pantalla una definicion de una palabara el usuario debera elegir si escribir y enviar la palabra o pasar de palabra y dejarla para mas adelante. </p>
-            <p>El juego no reconoce las tildes no hay que colocarlas.</p>
+            <p>El juego ni mayusculas ni las tildes no hay que colocarlas o la palabra sera un fallo</p>
             <a id="begin" class="btn" href="#">Iniciar</a>
         </div>
         <!-- Cotroles jugar -->
@@ -58,7 +58,7 @@
             <a id="send" class="btn btn--blue" href="#">Enviar</a>
             <a id="pasapalabra" class="btn" href="#">Pasapalabra</a>
         </div>
-        <!-- final -->
+        <!-- controles final -->
         <div class="end-game" > 
             <p> Fin del juego</p>
             <p id="aciertos"></p>
@@ -78,13 +78,13 @@ echo"
         $('#begin').on('click',inicio);
         $('#reset').on('click',reset);
         if('".$dificultad."'=='0'){
-            $('.timer').text('180');
+            $('.timer').text('300');
         }
         if('".$dificultad."'=='1'){
-            $('.timer').text('150');
+            $('.timer').text('240');
         }
         if('".$dificultad."'=='2'){
-            $('.timer').text('90');
+            $('.timer').text('180');
         }
         $('#send').on('click',enviar);
         $('#pasapalabra').on('click',function(){

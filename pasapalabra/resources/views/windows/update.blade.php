@@ -1,9 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-
-
-
 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 
         <div class="card card-signin my-5">
@@ -107,7 +103,4 @@ $('#frm').on('submit',function(e){
   
    
 </script>
-            
-
-
 @endsection

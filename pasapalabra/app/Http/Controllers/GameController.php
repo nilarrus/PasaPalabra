@@ -13,11 +13,12 @@ class GameController extends Controller
     {
         $this->middleware('auth');
     }
-    
+    //mostar la pantalla del juego 
     public function index()
     {
         return view('windows.game');
     }
+    //llega la difucultad y la letra y debuelve un array de palabras con esa letra
     public function palabrasRosco(Request $request)
     {
         $dif = $request->input('dificultad');
@@ -35,6 +36,7 @@ class GameController extends Controller
             //return back()->withErrors(['Error'=>'Error del servidor']);
         }
     }
+    //llega un id y regresa esa palabra 
     public function verificarPalabra(Request $request)
     {
         $id = $request->input('id');
