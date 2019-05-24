@@ -1,6 +1,9 @@
 body{
     background-image: url('../images/ff.jpg');
 }
+.card-body{
+    padding: 1%!important;
+}
 #PalabrasTabla{
     padding-left: 20%;
 }
