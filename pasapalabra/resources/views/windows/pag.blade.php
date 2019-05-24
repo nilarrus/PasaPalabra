@@ -39,16 +39,29 @@
                         </tr>
                       </thead>
                     @foreach($palabras as $dato)
-                    
                       <tbody>
                         <tr class="id{{$dato->id}}">
                           <td>{{ $dato->id }}</td>
                           <td>{{ $dato->Letra }}</td>
                           <td>{{ $dato->Tipo }}</td>
                           <td>{{ $dato->Palabra }}</td>
+
                           
-                          <td>{{ $dato->Dificultad }}</td>
+                          
+
+                          <?php
+                            $aux = $dato->Dificultad;
+                            if($aux == 0){
+                              //var_dump("Facil:".$aux);
+                              echo "<td>Facil</td>";
+                            }elseif($aux == 1){
+                              echo "<td>Normal</td>";
+                            }elseif ($aux == 2) {
+                              echo "<td>Dificil</td>";
+                            }                            
+                          ?>        
                           <td><a href="{{route('edit_index',$dato->id)}}" value="{{$dato->id}}" type="button" class="btn btn-primary btn-sm btn-edit">Editar</a> <button  type="button" class="btn btn-danger btn-sm btn-dell" value="{{$dato->id}}">Eliminar</button></td>
+
                           
                           
                         </tr>

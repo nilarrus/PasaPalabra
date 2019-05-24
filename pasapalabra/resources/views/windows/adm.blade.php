@@ -17,7 +17,7 @@ var agregar=function(){
 </script>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div id="caja" class="col-md-8">
             <div class="card">
                 <div class="card-body"><h5 class="card-title text-center">Administracion de palabras</h5></div>
 

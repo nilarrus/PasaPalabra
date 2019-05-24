@@ -1,6 +1,42 @@
-var posicionRosco = 0;
-var letrasRosco = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
-var continuar = true;
+var posicionRosco = 0;//posiciondelRosco en la que estas
+var continuar = true;//control pasaPalabra
+//contadores
+var aciertos = 0;
+var fallos = 0;
+var downTimer;//timer
+var tInicial = 0;
+
+//reniciar los colores del rosco
+function resetRosco(dif) {
+	$('.item').each(function(index){
+		//console.log(index);
+		$('.item')[index].setAttribute('class','item');
+	});
+	//console.log(dif);
+	newRosco(dif);
+}
+
+// Avengers Fin del juego
+function endGame() {
+	clearInterval(downTimer);
+	$('.question-controls').hide();
+	$('.timer').text(0);
+	$('.end-game').show();
+	$('#aciertos').text("Aciertos: "+aciertos);
+	$('#fallos').text("Fallos: "+fallos);
+
+}
+//resetear todo el juego al inicio
+function reset() {
+	$('.end-game').hide();
+	$('.welcome-user').show();
+	aciertos =0;
+	fallos =0;
+	$('.timer').text(tInicial);
+	$('.score').text(25);
+	resetRosco(dificultad);
+}
+
 //Recives 2 palabras y el return envia true si la palabra es igual
 function bienMal(palabraUser,palabraServer) {
 	if(palabraServer.toUpperCase() == palabraUser.toUpperCase()){
@@ -23,18 +59,37 @@ function VerificarPalabra(palabra,id) {
 		data:{id:id}
 	})
 	 .done(function(res){
-
-		console.log("Li: "+roscoJuego[posicionRosco]["Relacion"]+"\nPalabra del server: "+res[0]['Palabra']
-					+"\nPalabra usuario: "+palabra); 
-		console.log(bienMal(palabra,res[0]['Palabra']));
+		//modificaos el marcador 
+		marcador = $('.score').text()-1;
+		$('.score').text(marcador);
+		
 		if(bienMal(palabra,res[0]['Palabra'])){
-			$('.item')[posicionRosco].setAttribute('class','item item--success');
+			console.log("Acierto Li: "+roscoJuego[posicionRosco]["Relacion"]);
+			//console.log("bien");
+			$('.item')[roscoJuego[posicionRosco]["Relacion"]].setAttribute('class','item item--success');
+			aciertos++;
 			
 		}else{
-			$('.item')[posicionRosco].setAttribute('class','item item--failure');
+			console.log("Fallo Li: "+roscoJuego[posicionRosco]["Relacion"]);
+			//console.log("mal");
+			$('.item')[roscoJuego[posicionRosco]["Relacion"]].setAttribute('class','item item--failure');
+			fallos++;
 		}
-		//falta eliminar palabra y hacer el pasa palabra y contar los aciertos
-		
+		//fin del juego
+		if($('.score').text()==0){
+			//console.log("fin");
+			endGame();
+		}
+		//Eliminar palabra 
+		roscoJuego.splice(posicionRosco,1);
+
+		if(posicionRosco == roscoJuego.length || posicionRosco>roscoJuego.length){
+			posicionRosco = 0;
+		}
+		//Pasamos de palabra
+		if($('.score').text()!=0){
+			pasaPalabra(false);
+		}
 	 })
 	 .fail(function(jqXHR,textStatus){
 		 console.log("Ajax Fail: "+textStatus);
@@ -55,27 +110,37 @@ function enviar() {
 	VerificarPalabra($('#user-answer').val(),roscoJuego[posicionRosco]["id"]);
 
 }
-//pasarpalabra en funcion de si aun no la a "dicho"
-function pasaPalabra(){
-	if(roscoJuego.length-1==posicionRosco){
-		posicionRosco = 0;
+//pasarpalabra en funcion de si aun no la a "enviado"
+function pasaPalabra(continuar){
+	if(continuar){
+		if(roscoJuego.length-1==posicionRosco){
+			posicionRosco = 0;
+		}else{
+			posicionRosco++;
+		}
+		generarDescripcion(posicionRosco);
+		//limpiamos el input
+		$('#user-answer').val('');
 	}else{
-		posicionRosco++;
+		generarDescripcion(posicionRosco);
+		//limpiamos el input
+		$('#user-answer').val('');
+		continuar = true;
 	}
-	generarDescripcion(posicionRosco);
+	
 }
 
 //tiempo de juego segun dificultad
 function tiempoJuego(timeTotal){
-	//console.log("tiempo de juego: "+timeTotal);
 	var tLeft = timeTotal;
-	var downTimer = setInterval(function () {
+	//console.log("tiempo de juego: "+timeTotal);
+	downTimer = setInterval(function () {
 		$(".timer").text(tLeft);
 		if(tLeft<=0){
 			clearInterval(downTimer);
 			$(".timer").text(0);
-			console.log("fin Juego");
-			$('.end-game').show();//mostramos el fin del juego
+			//console.log("fin Juego");
+			endGame();
 		}
 		tLeft -=1;
 	},1000);
@@ -85,8 +150,7 @@ function tiempoJuego(timeTotal){
 function inicio() {
 	$('.welcome-user').hide();//ocultamos el welcome + inicio 
 	$('.question-controls').show();//mostramos los controles del juego
-	//tiempoJuego($(".timer").text());
-	//console.log("Funcion Inicio");
-	//console.log(roscoJuego);
+	tInicial = $('.timer').text();
+	tiempoJuego(tInicial);
 	generarDescripcion(0);
 }

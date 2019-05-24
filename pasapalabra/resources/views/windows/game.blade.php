@@ -60,7 +60,10 @@
         </div>
         <!-- final -->
         <div class="end-game" > 
-            <p> final del juego</p>
+            <p> Fin del juego</p>
+            <p id="aciertos"></p>
+            <p id="fallos"></p>
+            <a id="reset" class="btn btn--blue" href="#">Reiniciar</a>
         </div>
     </div>
 </section>
@@ -73,18 +76,20 @@ echo"
         $('.question-controls').hide();
         $('.end-game').hide();
         $('#begin').on('click',inicio);
-        if('".$dificultad."'=='facil'){
+        $('#reset').on('click',reset);
+        if('".$dificultad."'=='0'){
             $('.timer').text('180');
         }
-        if('".$dificultad."'=='normal'){
+        if('".$dificultad."'=='1'){
             $('.timer').text('150');
         }
-        if('".$dificultad."'=='dificil'){
+        if('".$dificultad."'=='2'){
             $('.timer').text('90');
         }
         $('#send').on('click',enviar);
-        $('#pasapalabra').on('click',pasaPalabra);
-        //console.log(roscoJuego);
+        $('#pasapalabra').on('click',function(){
+            pasaPalabra(true);    
+        });
     }; 
 </script>";
 ?>
