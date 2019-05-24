@@ -23,7 +23,7 @@ function ajaxPalabra(dif) {
              
             var palabra;
             palabra = randomElement(res);
-             
+             //creamos un objeto con toda informacion necesaria para generar el rosco
             var ObjPalabra = {
                 "Relacion":index,
                 "Tipo":palabra.Tipo,

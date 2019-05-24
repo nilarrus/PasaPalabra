@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid caja">
   <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 ">
     <div class="card">
       <div class="card-body">
     <div class="col text-center">
@@ -16,23 +16,24 @@
     </div>
   </div>
 <br>
+<!-- dificultades con mini descripcion -->
     <div class="row">
       <div class="col text-center">
         <a class="btn btn-success" href="{{route('Game_index')}}?dif=0">FACIL</a>
         <div class="col dificultad">
-          <p class="descDif">Tiempo 180s 3 min </p>
+          <p class="descDif">Tiempo 300s 5 min </p>
         </div>
       </div>
       <div class="col text-center">
         <a class="btn btn-warning" href="{{route('Game_index')}}?dif=1" >NORMAL</a>
         <div class="col dificultad">
-          <p class="descDif"> Tiempo 150s 2,5 min </p>
+          <p class="descDif"> Tiempo 240s 4 min </p>
         </div>
       </div>
       <div class="col text-center">
         <a class="btn btn-danger disabled"  href="{{route('Game_index')}}?dif=2" >DIFICIL</a>
         <div class="col dificultad">
-          <p class="descDif"> Tiempo 90s 1,5 min </p> 
+          <p class="descDif"> Tiempo 180s 3 min </p> 
         </div>
      
       </div>

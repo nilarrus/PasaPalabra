@@ -19,7 +19,7 @@ var agregar=function(){
     <div class="row justify-content-center">
         <div id="caja" class="col-md-8">
             <div class="card">
-                <div class="card-body"><h5 class="card-title text-center">Administracion de palabras</h5></div>
+                <div class="card-body"><h5 class="card-title text-center">Palabras</h5></div>
 
                 <div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
                 <strong>Palabra modificada correctamente.</strong>

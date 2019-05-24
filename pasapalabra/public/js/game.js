@@ -16,25 +16,27 @@ function resetRosco(dif) {
 	newRosco(dif);
 }
 
-// Avengers Fin del juego
+//Fin del juego
 function endGame() {
-	clearInterval(downTimer);
-	$('.question-controls').hide();
-	$('.timer').text(0);
-	$('.end-game').show();
-	$('#aciertos').text("Aciertos: "+aciertos);
-	$('#fallos').text("Fallos: "+fallos);
+	clearInterval(downTimer);//limpiar el timer
+	$('.question-controls').hide();//escondemos la interfaz del usuario para jugar
+	$('.timer').text(0);//colocamos el 0 en el tiempo
+	$('.end-game').show();//mostramos la informacion del final del juego
+	$('#aciertos').text("Aciertos: "+aciertos);//colocamos los aciertos
+	$('#fallos').text("Fallos: "+fallos);//colocamos los fallos
 
 }
 //resetear todo el juego al inicio
 function reset() {
-	$('.end-game').hide();
-	$('.welcome-user').show();
+	$('#user-answer').val('');//vaciamos el input del usuario
+	$('.end-game').hide();//escondemos el final del juego
+	$('.welcome-user').show();//mostramos las instrucciones y el inicio del juego.
+	//resetamos los contadores
 	aciertos =0;
 	fallos =0;
-	$('.timer').text(tInicial);
-	$('.score').text(25);
-	resetRosco(dificultad);
+	$('.timer').text(tInicial);//reiniciamos el contador de tiempo
+	$('.score').text(25);//reiniciamos el contador del la palabras
+	resetRosco(dificultad);//reacemos el rosco no nuevas palabras
 }
 
 //Recives 2 palabras y el return envia true si la palabra es igual
@@ -47,12 +49,11 @@ function bienMal(palabraUser,palabraServer) {
 }
 //verificar la palabra del usuario
 function VerificarPalabra(palabra,id) {
+	//sustitucion si el usuario envia el campo vacio
 	if(palabra == ""){
-		//console.log("vacia");
 		palabra = "0";
 	}
-	//falta ajax
-	//console.log(palabra+" "+id);
+	//validacion por ajax de la palabra enviada por el usuario
 	var lurl = "/game/"+id;
 	$.ajax({
 		url:lurl,
@@ -63,15 +64,12 @@ function VerificarPalabra(palabra,id) {
 		marcador = $('.score').text()-1;
 		$('.score').text(marcador);
 		
+		//comprobamos si la palabra es correcta
 		if(bienMal(palabra,res[0]['Palabra'])){
-			console.log("Acierto Li: "+roscoJuego[posicionRosco]["Relacion"]);
-			//console.log("bien");
 			$('.item')[roscoJuego[posicionRosco]["Relacion"]].setAttribute('class','item item--success');
 			aciertos++;
 			
 		}else{
-			console.log("Fallo Li: "+roscoJuego[posicionRosco]["Relacion"]);
-			//console.log("mal");
 			$('.item')[roscoJuego[posicionRosco]["Relacion"]].setAttribute('class','item item--failure');
 			fallos++;
 		}
@@ -82,7 +80,7 @@ function VerificarPalabra(palabra,id) {
 		}
 		//Eliminar palabra 
 		roscoJuego.splice(posicionRosco,1);
-
+		//correccion de la posicion del rosco
 		if(posicionRosco == roscoJuego.length || posicionRosco>roscoJuego.length){
 			posicionRosco = 0;
 		}
