@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="card card-signin my-5">
             <div class="card">
                 <div class="card-body"><h5 class="card-title text-center">Registrar</h5></div>
 
