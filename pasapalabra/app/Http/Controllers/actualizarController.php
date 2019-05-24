@@ -45,8 +45,44 @@ class actualizarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function filtro(Request $request)
     {
+        if ($request->ajax()) {
+            $query=$request->get('query');
+            if ($query !='') {
+                $data=DB::table('palabras')->where('Palabra', 'like', '%'.$query.'%')->orWhere('Descripcion', 'like', '%'.$query.'%')->orWhere('Dificultad', 'like', '%'.$query.'%')->orWhere('Tipo', 'like', '%'.$query.'%')->orWhere('Letra', 'like', '%'.$query.'%')->orderBy('id', 'desc')->get();
+
+                
+            }else
+            {
+                $data=DB::table('palabras')->orderBy('id','desc')->get();
+
+            }
+            $total_filas=$data->count();
+            if ($total_filas>0) {
+                foreach ($data as $fila ) {
+                    $output .='<tr>
+                    <td>'.$fila->Letra.'</td>
+                    <td>'.$fila->Palabra.'</td>
+                    <td>'.$fila->Tipo.'</td>
+                    <td>'.$fila->Descripcion.'</td>
+                    <td>'.$fila->Dificultad.'</td>
+                    </tr>';
+                   
+                }
+            }
+            else{
+                $output='No data found';
+
+            }
+            $data=array(
+                'table_data' =>$output,
+                'total_data' =>$total_data
+            );
+
+            echo json_encode($data);
+            
+        }
         //
     }
 

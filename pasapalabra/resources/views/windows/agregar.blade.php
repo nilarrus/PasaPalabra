@@ -5,6 +5,7 @@
 @include('windows.errors')
 
 <script type="text/javascript">
+  
   //insertar palabras
   $(document).ready(function(){
   $.ajaxSetup({
@@ -32,18 +33,23 @@ $('#frm-insert').on('submit',function(e){
 
 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
+          <div class="row">
+              <div class="col-12">
+              @include('windows.bread')
+                  <h1 class="display-20" id="modificar"></h1>
+              </div>
+          </div>
           <div class="card-body">
-            <h5 class="card-title text-center">Añadir Palabra</h5>
-            </div>
-            <div class="panel-footer">
+                <h5 class="card-title text-center">Añadir Palabra</h5>
+              </div>
+              <div class="panel-footer">
               <div class="card-body">
-                                       
-              {!! Form::open(['url'=>'insertar','method'=>'POST','id'=>'frm-insert']) !!}
-               <div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+              <div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
                 <strong>Palabra agregada correctamente.</strong>
                 <br>
                 <a href="{{route('adm_index')}}">volver al Listado</a>
-                </div>
+                </div>              
+              {!! Form::open(['url'=>'insertar','method'=>'POST','id'=>'frm-insert']) !!}
                 
 
                   {!!Form::label('Letra','Letra')!!}

@@ -53,13 +53,26 @@
 
                   <!--{!!Form::text('Dificultad',null,['id'=>'Dificultad','class'=>'form-control'])!!}  
                    -->
-                  {!!Form::select('Dificultad',[$dato->Dificultad,'Facil','Normal','Dificil'],['id'=>'Dificultad'],['class'=>'form-control'])!!}  
+
+                  {!!Form::select('Dificultad',['Facil','Normal','Dificil'],['id'=>'Dificultad'],['class'=>'form-control'])!!}  
 
                   {!!Form::submit('Enviar',['id'=>'Enviar','class'=>'btn btn-block btn-success'])!!}
 
 
                   {!!Form::close()!!} 
                   @endforeach
+
+                  <?php
+
+                  echo "<script type='text/javascript'>
+                  
+                  console.log('".$dato->Dificultad."');
+
+                  $('#Dificultad option[value=".$dato->Dificultad."]').attr('selected','selected');
+
+                  </script>";
+
+                  ?>
 
 
 </div>
@@ -90,6 +103,9 @@ $('#frm').on('submit',function(e){
   
 })
 })
+
+  
+   
 </script>
             
 

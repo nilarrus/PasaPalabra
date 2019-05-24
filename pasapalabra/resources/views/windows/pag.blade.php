@@ -16,14 +16,17 @@
     });
   })
 
-  
+
+
 
   
 </script>
 
 
+
 <div class="daP">
 <div class="card-body" >
+
                   <table id="tabla" class="table table-hover">
                       <thead class="thead-">
                         <tr>
@@ -74,94 +77,4 @@
               </div>
 
 </div>
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-  
-  $("#tabla").DataTable();
-} );
-  //Editar tabla
-  /*$(document).ready(function(){
-  $.ajaxSetup({
-    headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
-  })
-
-  $(document).on('click','.btn-edit',function(e){
-    var id=$(this).val();
-    
-    $.ajax({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-      type: 'get',
-      url: "{{url('update')}}",
-      data: {id:id},
-      success:function(data){
-        var formUpdate=$("#frm");
-        $("#id").val(data.id);
-        $("#Letra").val(data.Letra);
-        $("#Palabra").val(data.Palabra);
-        $("#Tipo").val(data.Tipo);
-        $("#Descripcion").val(data.Descripcion);
-        $("#Dificultad").val(data.Dificultad);
-        $("#modalUpdate").modal("show");
-      }
-    });
-  })*/
-
-
-/*$("#sub").click(function(){
-    var data=$(this).serialize();
-    var ruta="{{url('edit')}}";
-
-    $.ajax({
-      url: ruta,
-      headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')},
-      type: ruta,
-      data:data,
-      success: function(data){
-        
-          console.log(data);
-          $("#frm").trigger('reset');
-          $("#modalUpdate").modal('toggle');
-        
-      }
-    });
-});*/
-
-
-  /*$("#frm").on("submit",function(e){
-    e.preventDefault();
-    var id=$("#id").val();
-    var data=$(this).serialize();
-    var url=$(this).attr('action')+id;
-    var post=$(this).attr('method');
-    /*$.post(url,data,id,function(data){
-      console.log(data);
-      $("#frm").trigger('reset');
-      $("#modalUpdate").modal('toggle');
-      
-    })*/
-    /*$.ajax({
-      headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('consstent')},
-      type: post,
-      url: url,
-      data: data,
-      success:function(data){
-        
-        $("#frm").trigger('reset');
-        $("#modalUpdate").modal('toggle');
-        $("#msj-success").fadeIn();
-     
-    },
-    error: function(data){
-        console.log(data);
-      }
-  })
-  })*/
-
- 
-
- 
-</script>
 

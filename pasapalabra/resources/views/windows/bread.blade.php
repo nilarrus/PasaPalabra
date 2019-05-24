@@ -7,7 +7,7 @@
    @for($i = 0; $i <= count(Request::segments()); $i++)
       <li>
          <a href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$i, true)))}}">
-            {{strtoupper(Request::segment($i-1))}}
+            {{strtoupper(Request::segment($i-2))}}
          </a>
       </li>
    @endfor
