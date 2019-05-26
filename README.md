@@ -10,6 +10,6 @@ Proyecto final del GS AWS
    6. Alexa Skill.
 
 ## Branch
-Master --> Proyecto con toda la informacion y con la version del heroku
-Develop/Develop2 --> Version del proyecto en desarrollo
-Deploy --> Formato para poder hacer la subida a produccion automatica al servicio de heroku
+1. Master --> Proyecto con toda la informacion y con la version del heroku
+2. Develop/Develop2 --> Version del proyecto en desarrollo
+3. Deploy --> Formato para poder hacer la subida a produccion automatica al servicio de heroku
