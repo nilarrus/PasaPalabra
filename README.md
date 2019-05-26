@@ -8,3 +8,8 @@ Proyecto final del GS AWS
    4. Logica del juego.
    5. Api de la aplicacion.
    6. Alexa Skill.
+
+## Branch
+Master --> Proyecto con toda la informacion y con la version del heroku
+Develop/Develop2 --> Version del proyecto en desarrollo
+Deploy --> Formato para poder hacer la subida a produccion automatica al servicio de heroku
