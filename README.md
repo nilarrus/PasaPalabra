@@ -11,5 +11,5 @@ Proyecto final del GS AWS
 
 ## Branch
 1. Master --> Proyecto con toda la informacion y con la version del heroku
-2. Develop/Develop2 --> Version del proyecto en desarrollo
+2. Develop/Develop2 --> Versiones del proyecto en desarrollo
 3. Deploy --> Formato para poder hacer la subida a produccion automatica al servicio de heroku
