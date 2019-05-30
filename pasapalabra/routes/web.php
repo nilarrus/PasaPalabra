@@ -39,8 +39,10 @@ Route::get('/level','LevelController@index')->name('Level_index');
 //Pagina Ranking
 Route::get('/ranking','RangkingController@index')->name('Ranking_index');
 
-//Pagina Game 
-Route::get('/game','GameController@index')->name('Game_index');
+//Pagina 1 Game 
+Route::get('/game1','GameController@index')->name('Game_index1');
+//Pagina 2 Game 
+Route::get('/game2','GameController@index2')->name('Game_index2');
 //Segun la dificultad return un json difirente
 Route::get('/game/palabra', 'GameController@palabrasRosco')->name('Json_Palabas');
 //envias un id para que el server te envie la palabra a la que tiene que comparar

@@ -42,7 +42,7 @@
     <div class="controls-container">
         <!-- controles Turorial -->
         <div class="welcome-user">
-            <h4>Bienvenidos al Pasapalabra</h4>
+            <h4>Bienvenidos al Pasapalabra para 1 jugador</h4>
             <p>Juego basado en el programa de tevelision del mismo nombre, las reglas son muy sencillas:</p>
             <p>Se mostrara por pantalla una definicion de una palabara el usuario debera elegir si escribir y enviar la palabra o pasar de palabra y dejarla para mas adelante. </p>
             <p>El juego ni mayusculas ni las tildes no hay que colocarlas o la palabra sera un fallo</p>

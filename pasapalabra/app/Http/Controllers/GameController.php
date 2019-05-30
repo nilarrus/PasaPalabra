@@ -16,7 +16,11 @@ class GameController extends Controller
     //mostar la pantalla del juego 
     public function index()
     {
-        return view('windows.game');
+        return view('windows.game1p');
+    }
+    public function index2()
+    {
+        return view('windows.game2p');
     }
     //llega la difucultad y la letra y debuelve un array de palabras con esa letra
     public function palabrasRosco(Request $request)
