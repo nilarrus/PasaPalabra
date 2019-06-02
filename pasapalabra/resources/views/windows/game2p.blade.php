@@ -4,14 +4,20 @@
 <body>
 <!-- css unico para esta pagina -->
 <link rel="stylesheet" href="{{asset('css/game.css')}}">
+<div class="inicio">
+    <a id="begin" class="btn btn-dark" href="#">Iniciar</a>
+    <a id="reset" class="btn btn-dark" href="#">Reiniciar</a>
+</div>
 <section class="game">
+        
         <!-- Dibujo del rosco -->
-        <div class="circle-container c2">
-                <ul class="scoreboard marcador">
+        <div class="circle-container c2 p1">
+            <h2>Jugador 1</h2>
+                <ul class="scoreboard marcador p1">
                         <li id="timer p1" class="timer"></li>
                         <li id="score p1" class="score">25</li>
                 </ul>
-                <ul  class="circle player">
+                <ul  class="circle player p1">
                         <li id="0" class="item p1">A</li>
                         <li id="1" class="item p1">B</li>
                         <li id="2" class="item p1">C</li>
@@ -39,12 +45,14 @@
                         <li id="24" class="item p1">Z</li>
                 </ul>
         </div>
-        <div class="circle-container c2">
-                <ul class="scoreboard marcador">
+        <div class="circle-container c2 p2">
+        <h2>Jugador 2</h2>
+
+                <ul class="scoreboard marcador p2">
                         <li id="timer p2" class="timer"></li>
                         <li id="score p2" class="score">25</li>
                     </ul>
-                        <ul  class="circle player">
+                        <ul  class="circle player p2">
                         <li id="0" class="item p2">A</li>
                         <li id="1" class="item p2">B</li>
                         <li id="2" class="item p2">C</li>
@@ -81,7 +89,6 @@
                     <p>Juego basado en el programa de tevelision del mismo nombre, las reglas son muy sencillas:</p>
                     <p>Se mostrara por pantalla una definicion de una palabara el usuario debera elegir si escribir y enviar la palabra o pasar de palabra y dejarla para mas adelante. </p>
                     <p>El juego ni mayusculas ni las tildes no hay que colocarlas o la palabra sera un fallo</p>
-                    <a id="begin" class="btn" href="#">Iniciar</a>
                 </div>
                 <!-- Cotroles jugar -->
                 <div id="question-controls" class="question-controls" >
@@ -98,7 +105,24 @@
                     <p> Fin del juego</p>
                     <p id="aciertos"></p>
                     <p id="fallos"></p>
-                    <a id="reset" class="btn btn--blue" href="#">Reiniciar</a>
+                </div>
+            </div>
+            <div class="controls-container">
+                <!-- Cotroles jugar -->
+                <div id="question-controls" class="question-controls" >
+                    <span id="hint" class="hint">"Empieza/contiene"</span>
+                    <p id="definition" class="definition">"Definicion"</p>
+        
+                    <input id="user-answer" type="text" placeholder="Introduce tu respuesta">
+        
+                    <a id="send" class="btn btn--blue" href="#">Enviar</a>
+                    <a id="pasapalabra" class="btn" href="#">Pasapalabra</a>
+                </div>
+                <!-- controles final -->
+                <div class="end-game" > 
+                    <p> Fin del juego</p>
+                    <p id="aciertos"></p>
+                    <p id="fallos"></p>
                 </div>
             </div>
 </section>
@@ -108,8 +132,10 @@ echo"
 <script>
     window.onload = function() {
         newRosco('".$dificultad."');
-        $('.question-controls').hide();
+        $('.welcome-user').hide();
+        /*$('.question-controls').hide();*/
         $('.end-game').hide();
+        $('#reset').hide();
         $('#begin').on('click',inicio);
         $('#reset').on('click',reset);
         if('".$dificultad."'=='0'){

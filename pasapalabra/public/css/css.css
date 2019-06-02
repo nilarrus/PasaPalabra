@@ -1,6 +1,12 @@
 body{
     background-image: url('../images/ff.jpg');
 }
+.controles{
+    height: 30vh;
+}
+.question-controls{
+    padding-left: 5%!important;
+}
 .card-body{
     padding: 1%!important;
 }
@@ -13,6 +19,8 @@ body{
 .end-game{
     color: white;
     font-weight:bold;
+    padding: 2%;
+    padding-top: 10%;
 }
 #aciertos{
     color: green;
@@ -24,8 +32,14 @@ body{
     padding: 10%;
 }
 .c2{
-    font-size: 70%;
+    font-size: 80%;
     padding-left: 2%;
+    margin-top: 10%;
+    height: 70%!important   ;
+}
+.inicio{
+    text-align: center;
+    padding-top: 2%;
 }
 .player{
     top:60%;

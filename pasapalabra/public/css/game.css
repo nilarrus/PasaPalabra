@@ -18,7 +18,7 @@ body {
 @media (min-width: 54.75em) {
   section {
     display: flex;
-    height: 95vh;
+    height: 50vh;
     min-height: none; } }
 
 .hidden {
@@ -293,7 +293,6 @@ body {
     .question-controls {
       position: absolute;
       margin: 0;
-      transform: translate(-50%, -50%);
       width: 90%; } }
   .question-controls input {
     height: 45.75px;
@@ -301,10 +300,10 @@ body {
     border-radius: 3px; }
   .question-controls .definition {
     margin-top: 0;
-    color: #fff;
+    
     font-size: 1rem; }
   .question-controls .hint {
-    color: #fff;
+    
     font-size: 1.75rem; }
 
 .pa-controls {
