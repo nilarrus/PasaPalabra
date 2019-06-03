@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid caja">
-  <div class="row justify-content-center">
-    <div class="col-md-8 ">
-      <div class="card">
+  <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="card card-signin my-5">
+      
         <div class="card-body">
           <div class="col text-center">
             <h1>Bienvenidos al Pasapalabra</h1>

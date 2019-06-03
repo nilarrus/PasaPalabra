@@ -3,7 +3,7 @@
 <!-- Valores pasados por parametro de dificultad de timer-->
 <body>
 <!-- css unico para esta pagina -->
-<link rel="stylesheet" href="{{asset('css/game.css')}}">
+<link rel="stylesheet" href="{{asset('css/cssJ1.css')}}">
 <section class="game">
     <!-- Dibujo del rosco -->
     <div class="circle-container">

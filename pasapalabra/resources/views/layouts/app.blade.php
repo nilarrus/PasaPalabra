@@ -43,6 +43,8 @@
     <script type="text/javascript" src="{{ asset('js/game.js') }}"></script>
     <!-- Custom CSS -->
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cssJ1.css') }}" rel="stylesheet">
+
     
 </head>
 <body>
