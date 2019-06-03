@@ -33,7 +33,8 @@ body {
       position: relative;
       width: 50%;
       height: 100%;
-      padding-top: 0; } }
+      padding-top: 0;
+      margin: 11%; } }
 
 .circle {
   position: relative;
@@ -110,7 +111,7 @@ body {
       list-style: none;
       position: absolute;
 
-      margin: 0;
+      margin: 12%;
       transform: translate(-50%, -50%); }
       .circle > * {
         display: block;
@@ -190,7 +191,8 @@ body {
       background-image: radial-gradient(circle, #f8fc1b, #f8fc1b); }
 .scoreboard {
   margin: 0%!important;
-  list-style: none; }
+  list-style: none;
+  left: 90%; }
   @media (min-width: 54.75em) {
     .scoreboard {
       position: absolute;
@@ -292,7 +294,7 @@ body {
   @media (min-width: 54.75em) {
     .question-controls {
       position: absolute;
-      margin: 0;
+      margin: 4%;
       width: 90%; } }
   .question-controls input {
     height: 45.75px;

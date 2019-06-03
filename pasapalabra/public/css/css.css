@@ -38,8 +38,9 @@ body{
     height: 70%!important   ;
 }
 .inicio{
-    text-align: center;
+    
     padding-top: 2%;
+    margin-left: 44%;
 }
 .player{
     top:60%;
