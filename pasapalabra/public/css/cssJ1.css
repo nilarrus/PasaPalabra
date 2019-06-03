@@ -191,7 +191,7 @@ body {
 .scoreboard {
   margin: 70%!important;
   list-style: none; 
-  right: 15%}
+  right: 10%}
   @media (min-width: 54.75em) {
     .scoreboard {
       position: absolute;
