@@ -4,6 +4,8 @@
 <body>
 <!-- css unico para esta pagina -->
 <link rel="stylesheet" href="{{asset('css/cssJ1.css')}}">
+<script type="text/javascript" src="{{ asset('js/rosco.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/game.js') }}"></script>
 <section class="game">
     <!-- Dibujo del rosco -->
     <div class="circle-container">

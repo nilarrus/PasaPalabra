@@ -4,6 +4,9 @@
 <body>
 <!-- css unico para esta pagina -->
 <link rel="stylesheet" href="{{asset('css/game.css')}}">
+<script src="{{asset('js/rosco2.js')}}"></script>
+<script src="{{asset('js/game2.js')}}"></script>
+
 <div class="inicio">
     <a id="begin" class="btn btn-dark" href="#">Iniciar</a>
     <a id="reset" class="btn btn-dark" href="#">Reiniciar</a>
@@ -14,8 +17,8 @@
         <div class="circle-container c2 p1">
             <h2>Jugador 1</h2>
                 <ul class="scoreboard marcador p1">
-                        <li id="timer p1" class="timer"></li>
-                        <li id="score p1" class="score">25</li>
+                        <li id="timer1" class="timer tp1"></li>
+                        <li id="score1" class="score sp1">25</li>
                 </ul>
                 <ul  class="circle player p1">
                         <li id="0" class="item p1">A</li>
@@ -49,8 +52,8 @@
         <h2>Jugador 2</h2>
 
                 <ul class="scoreboard marcador p2">
-                        <li id="timer p2" class="timer"></li>
-                        <li id="score p2" class="score">25</li>
+                        <li id="timer2" class="timer tp2"></li>
+                        <li id="score2" class="score sp2">25</li>
                     </ul>
                         <ul  class="circle player p2">
                         <li id="0" class="item p2">A</li>
@@ -131,7 +134,7 @@ $dificultad = $_GET['dif'];
 echo"
 <script>
     window.onload = function() {
-        newRosco('".$dificultad."');
+        newRoscos('".$dificultad."');
         $('.welcome-user').hide();
         /*$('.question-controls').hide();*/
         $('.end-game').hide();
