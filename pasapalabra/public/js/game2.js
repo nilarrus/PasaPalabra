@@ -19,8 +19,9 @@ function resetRosco(dif) {
 //Fin del juego
 function endGame() {
 	clearInterval(downTimer);//limpiar el timer
+
 	$('.question-controls').hide();//escondemos la interfaz del usuario para jugar
-	$('.timer').text(0);//colocamos el 0 en el tiempo
+	$('.tp1').text(0);//colocamos el 0 en el tiempo
 	$('.end-game').show();//mostramos la informacion del final del juego
 	$('#aciertos').text("Aciertos: "+aciertos);//colocamos los aciertos
 	$('#fallos').text("Fallos: "+fallos);//colocamos los fallos
@@ -34,8 +35,8 @@ function reset() {
 	//resetamos los contadores
 	aciertos =0;
 	fallos =0;
-	$('.timer').text(tInicial);//reiniciamos el contador de tiempo
-	$('.score').text(25);//reiniciamos el contador del la palabras
+	$('.timtp1er').text(tInicial);//reiniciamos el contador de tiempo
+	$('.sp1').text(25);//reiniciamos el contador del la palabras
 	resetRosco(dificultad);//reacemos el rosco no nuevas palabras
 }
 
@@ -61,8 +62,8 @@ function VerificarPalabra(palabra,id) {
 	})
 	 .done(function(res){
 		//modificaos el marcador 
-		marcador = $('.score').text()-1;
-		$('.score').text(marcador);
+		marcador = $('.sp1').text()-1;
+		$('.sp1').text(marcador);
 		
 		//comprobamos si la palabra es correcta
 		if(bienMal(palabra,res[0]['Palabra'])){
@@ -74,7 +75,7 @@ function VerificarPalabra(palabra,id) {
 			fallos++;
 		}
 		//fin del juego
-		if($('.score').text()==0){
+		if($('.sp1').text()==0){
 			//console.log("fin");
 			endGame();
 		}
@@ -85,7 +86,7 @@ function VerificarPalabra(palabra,id) {
 			posicionRosco = 0;
 		}
 		//Pasamos de palabra
-		if($('.score').text()!=0){
+		if($('.sp1').text()!=0){
 			pasaPalabra(false);
 		}
 	 })
@@ -149,7 +150,7 @@ function inicio() {
 	$('.welcome-user').hide();//ocultamos el welcome + inicio 
 	$('.question-controls').show();//mostramos los controles del juego
 	tInicial = $('.timer').text();
-	tiempoJuego(tInicial); 
+	//tiempoJuego(tInicial); 
 	generarDescripcion(0);
 }
 /* ruta muerta
