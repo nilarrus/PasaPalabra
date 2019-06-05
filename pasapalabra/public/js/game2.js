@@ -169,12 +169,12 @@ function pasaPalabra(continuar,jugador){
 			}else{
 				posicionRosco2++;
 			}
-			generarDescripcion(posicionRosco2);
+			//generarDescripcion(posicionRosco2);
 			//limpiamos el input
 			$('#user-answer').val('');
 			mostrarOcultar(jugador);
 		}else{
-			generarDescripcion(posicionRosco2);
+			//generarDescripcion(posicionRosco2);
 			//limpiamos el input
 			$('#user-answer').val('');
 			continuar = true;
@@ -216,12 +216,12 @@ function avanzarPalabra(continuar,jugador){
 			}else{
 				posicionRosco2++;
 			}
-			generarDescripcion(posicionRosco2);
+			//generarDescripcion(posicionRosco2);
 			//limpiamos el input
 			$('#user-answer').val('');
 			
 		}else{
-			generarDescripcion(posicionRosco2);
+			//generarDescripcion(posicionRosco2);
 			//limpiamos el input
 			$('#user-answer').val('');
 			continuar = true;

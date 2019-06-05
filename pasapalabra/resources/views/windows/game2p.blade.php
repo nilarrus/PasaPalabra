@@ -8,6 +8,16 @@
 <script src="{{asset('js/rosco2.js')}}"></script>
 <script src="{{asset('js/game2.js')}}"></script>
 
+<!-- controles Turorial -->
+<div class="tutorial" >
+    <div class="welcome-user" class="text-nowrap" >
+            <h3>Bienvenidos al Pasapalabra para 2 jugadores</h3>
+            <b><p class="text-md-left">Juego basado en el programa de tevelision del mismo nombre, las reglas son muy sencillas:</p>
+            <p class="text-md-left">Se mostrara por pantalla una definicion de una palabara el usuario debera elegir si escribir y enviar la palabra o pasar de palabra y dejarla para mas adelante. </p>
+            <p class="text-md-left">El juego ni mayusculas ni las tildes no hay que colocarlas o la palabra sera un fallo</p><b>
+            <a id="begin" class="btn btn-block btn-primary" href="#">Iniciar</a>
+        </div>
+</div>
 <div class="inicio">
     <a id="reset" class="btn btn-dark" href="#">Reiniciar</a>
 </div>
@@ -85,16 +95,7 @@
         </div>
 </section>
 <section class="controles">
-        <div class="controls-container">
-                <!-- controles Turorial -->
-                <div class="welcome-user" class="text-nowrap" style="width: 30rem;">
-                    <h3>Bienvenidos al Pasapalabra para 2 jugadores</h3>
-                    <b><p class="text-md-left">Juego basado en el programa de tevelision del mismo nombre, las reglas son muy sencillas:</p>
-                    <p class="text-md-left">Se mostrara por pantalla una definicion de una palabara el usuario debera elegir si escribir y enviar la palabra o pasar de palabra y dejarla para mas adelante. </p>
-                    <p class="text-md-left">El juego ni mayusculas ni las tildes no hay que colocarlas o la palabra sera un fallo</p><b>
-                    <a id="begin" class="btn btn-block btn-primary" href="#">Iniciar</a>
-
-                </div>
+        <div class="controls-container">   
                 <!-- Cotroles jugar -->
                 <div id="question-controls" class="question-controls q1" >
                     <span id="hint" class="hint">"Empieza/contiene"</span>
@@ -111,8 +112,8 @@
                     <p id="aciertos"></p>
                     <p id="fallos"></p>
                 </div>
-            </div>
-            <div class="controls-container">
+        </div>
+        <div class="controls-container">
                 <!-- Cotroles jugar -->
                 <div id="question-controls" class="question-controls q2" >
                     <span id="hint" class="hint">Esperando turno</span>
@@ -129,7 +130,7 @@
                     <p id="aciertos"></p>
                     <p id="fallos"></p>
                 </div>
-            </div>
+        </div>
 </section>
 <?php
 $dificultad = $_GET['dif'];
