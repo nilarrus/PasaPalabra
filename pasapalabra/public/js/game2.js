@@ -1,5 +1,5 @@
 var posicionRosco1 = 0;//posiciondelRosco en la que estas
-var posicionRosco2 = 0;// posicion rosco j2
+var posicionRosco2 = 0;//posiciondelRosco en la que estas
 var continuar = true;//control pasaPalabra
 //contadores
 var aciertos1 = 0;
@@ -29,13 +29,16 @@ function resetRosco(dif) {
 		$('.item')[index].setAttribute('class','item');
 	});
 	//console.log(dif);
-	newRoscos(dif);
+	newRosco(dif);
 }
 
 //Fin del juego
 function endGame() {
+	var roscoInvisible=document.getElementsByClassName("game")[0];
+	roscoInvisible.style.visibility = 'hidden';
 	clearInterval(downTimer);//limpiar el timer
-
+	var roscoInvisible=document.getElementById("reset");
+	roscoInvisible.style.visibility = 'visible';
 	$('.question-controls').hide();//escondemos la interfaz del usuario para jugar
 	$('.tp1').text(0);//colocamos el 0 en el tiempo
 	$('.end-game').show();//mostramos la informacion del final del juego
@@ -45,6 +48,10 @@ function endGame() {
 }
 //resetear todo el juego al inicio
 function reset() {
+	var roscoInvisible=document.getElementsByClassName("game")[0];
+	roscoInvisible.style.visibility = 'hidden';
+	var roscoInvisible=document.getElementById("reset");
+	roscoInvisible.style.visibility = 'hidden';
 	$('#user-answer').val('');//vaciamos el input del usuario
 	$('.end-game').hide();//escondemos el final del juego
 	$('.welcome-user').show();//mostramos las instrucciones y el inicio del juego.
@@ -192,7 +199,7 @@ function enviar(jugador) {
 //pasarpalabra en funcion de si aun no la a "enviado"
 function pasaPalabra(continuar,jugador){
 	if(jugador==1){
-		console.log("Pasapalabra Juagador1");
+		
 		//j1
 		if(continuar){
 			if(roscoJuego1.length-1==posicionRosco1){
@@ -214,7 +221,7 @@ function pasaPalabra(continuar,jugador){
 		
 		
 	}else if(jugador==2){
-		console.log("Pasapalabra Juagador2");
+		
 		//j2
 		if(continuar){
 			if(roscoJuego2.length-1==posicionRosco2){
@@ -240,7 +247,7 @@ function pasaPalabra(continuar,jugador){
 //pasarpalabra del boton enviar
 function avanzarPalabra(continuar,jugador){
 	if(jugador==1){
-		console.log("AvanzarPalabra Juagador1");
+		
 		//j1
 		if(continuar){
 			if(roscoJuego1.length-1==posicionRosco1){
@@ -261,7 +268,6 @@ function avanzarPalabra(continuar,jugador){
 		
 		
 	}else if(jugador==2){
-		console.log("AvanzarPalabra Juagador2");
 		//j2
 		if(continuar){
 			if(roscoJuego2.length-1==posicionRosco2){
@@ -308,10 +314,12 @@ function tiempoJuego(timeTotal){
 function inicio() {
 	var roscoInvisible=document.getElementsByClassName("game")[0];
 	roscoInvisible.style.visibility = 'visible';
+	/*var btnReset=$(".inicio");
+	btnReset.style.visibility = 'visible';*/
 	$('.welcome-user').hide();//ocultamos el welcome + inicio 
 	$('.question-controls').show();//mostramos los controles del juego
 	tInicial = $('.timer').text();
-	$("#begin").hide();
+	//$("#begin").hide();
 	$('.q2').hide();
 	//tiempoJuego(tInicial); 
 	generarDescripcion(0,1);

@@ -22,6 +22,24 @@
     <a id="reset" class="btn btn-dark" href="#">Reiniciar</a>
 </div>
 
+
+<div class="end-game" style="width: 50%;"> 
+                    
+    <table class="table">
+        <th>
+            <td><h3> Jugador 1</h3>
+            <p id="aciertos"></p>
+            <p id="fallos"></p></td>
+        </th>
+        <th>
+            <td><h3> Jugador 2</h3>
+            <p id="aciertos2"></p>
+            <p id="fallos2"></p></td>
+        </th>
+    </table>
+
+</div>
+
 <section class="game">
         
         <!-- Dibujo del rosco -->
@@ -108,11 +126,7 @@
                     <a id="pasapalabra1" class="btn" href="#">Pasapalabra</a>
                 </div>
                 <!-- controles final -->
-                <div class="end-game" > 
-                    <p> Fin del juego</p>
-                    <p id="aciertos"></p>
-                    <p id="fallos"></p>
-                </div>
+                
         </div>
         <div class="controls-container">
                 <!-- Cotroles jugar -->
@@ -126,11 +140,7 @@
                     <a id="pasapalabra2" class="btn" href="#">Pasapalabra</a>
                 </div>
                 <!-- controles final -->
-                <div class="end-game" > 
-                    <p> Fin del juego</p>
-                    <p id="aciertos"></p>
-                    <p id="fallos"></p>
-                </div>
+                
         </div>
 </section>
 <?php
