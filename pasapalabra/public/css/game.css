@@ -9,11 +9,17 @@ body {
   font-weight: 900; 
   padding-top: 0%!important;
 }
+
+
 .welcome-user{
   font-weight: normal!important;
   color: #fff;
-  margin-top: 10%;
+  margin-left:60%;
+  margin-top: -40%;
+
 }
+
+
 
 @media (min-width: 54.75em) {
   section {
@@ -21,12 +27,17 @@ body {
     height: 50vh;
     min-height: none; } }
 
+.game{
+  visibility: hidden;
+}
+
 .hidden {
   display: none; }
 
 /* Circle
  * ----------------------------------------------------------------------------- */
 .circle-container {
+
   width: 100%; }
   @media (min-width: 54.75em) {
     .circle-container {
