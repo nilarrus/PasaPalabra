@@ -21,16 +21,17 @@
 <div class="inicio">
     <a id="reset" class="btn btn-dark" href="#">Reiniciar</a>
 </div>
+
 <section class="game">
         
         <!-- Dibujo del rosco -->
-        <div class="circle-container c2 p1">
+        <div class="circle-container c2 pl1">
             <h2>Jugador 1</h2>
-                <ul class="scoreboard marcador p1">
+                <ul class="scoreboard marcador pl1">
                         <li id="timer1" class="timer tp1"></li>
                         <li id="score1" class="score sp1">25</li>
                 </ul>
-                <ul  class="circle player p1">
+                <ul  class="circle player pl1">
                         <li id="0" class="item p1">A</li>
                         <li id="1" class="item p1">B</li>
                         <li id="2" class="item p1">C</li>
@@ -58,14 +59,14 @@
                         <li id="24" class="item p1">Z</li>
                 </ul>
         </div>
-        <div class="circle-container c2 p2">
+        <div class="circle-container c2 pl2">
         <h2>Jugador 2</h2>
 
-                <ul class="scoreboard marcador p2">
+                <ul class="scoreboard marcador pl2">
                         <li id="timer2" class="timer tp2"></li>
                         <li id="score2" class="score sp2">25</li>
                     </ul>
-                        <ul  class="circle player p2">
+                        <ul  class="circle player pl2">
                         <li id="0" class="item p2">A</li>
                         <li id="1" class="item p2">B</li>
                         <li id="2" class="item p2">C</li>
@@ -98,10 +99,10 @@
         <div class="controls-container">   
                 <!-- Cotroles jugar -->
                 <div id="question-controls" class="question-controls q1" >
-                    <span id="hint" class="hint">"Empieza/contiene"</span>
-                    <p id="definition" class="definition">"Definicion"</p>
+                    <span id="hint1" class="hint">"Empieza/contiene"</span>
+                    <p id="definition1" class="definition">"Definicion"</p>
         
-                    <input id="user-answer" type="text" placeholder="Introduce tu respuesta">
+                    <input id="user-answer1" type="text" placeholder="Introduce tu respuesta">
         
                     <a id="send1" class="btn btn--blue" href="#">Enviar</a>
                     <a id="pasapalabra1" class="btn" href="#">Pasapalabra</a>
@@ -116,10 +117,10 @@
         <div class="controls-container">
                 <!-- Cotroles jugar -->
                 <div id="question-controls" class="question-controls q2" >
-                    <span id="hint" class="hint">Esperando turno</span>
-                    <p id="definition" class="definition"></p>
+                    <span id="hint2" class="hint">Esperando turno</span>
+                    <p id="definition2" class="definition"></p>
         
-                    <input id="user-answer" type="text" placeholder="Introduce tu respuesta">
+                    <input id="user-answer2" type="text" placeholder="Introduce tu respuesta">
         
                     <a id="send2" class="btn btn--blue" href="#">Enviar</a>
                     <a id="pasapalabra2" class="btn" href="#">Pasapalabra</a>
