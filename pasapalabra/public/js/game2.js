@@ -1,10 +1,27 @@
-var posicionRosco = 0;//posiciondelRosco en la que estas
+var posicionRosco1 = 0;//posiciondelRosco en la que estas
+var posicionRosco2 = 0;// posicion rosco j2
 var continuar = true;//control pasaPalabra
 //contadores
 var aciertos = 0;
 var fallos = 0;
+var fallar = false;
 var downTimer;//timer
 var tInicial = 0;
+
+//Mostrar y esconder los controles de cada jugador
+function mostrarOcultar(jugador) {
+	if(jugador==1){
+		/*
+		$('.q1').hide();
+		$('.q2').show();
+		*/
+	}else if(jugador==2){
+		/*
+		$('.q2').hide();
+		$('.q1').show();
+	*/
+	}
+}
 
 //reniciar los colores del rosco
 function resetRosco(dif) {
@@ -13,7 +30,7 @@ function resetRosco(dif) {
 		$('.item')[index].setAttribute('class','item');
 	});
 	//console.log(dif);
-	newRosco(dif);
+	newRoscos(dif);
 }
 
 //Fin del juego
@@ -49,7 +66,8 @@ function bienMal(palabraUser,palabraServer) {
 	}
 }
 //verificar la palabra del usuario
-function VerificarPalabra(palabra,id) {
+function VerificarPalabra(palabra,id,jugador) {
+	var score = ".sp"+jugador;
 	//sustitucion si el usuario envia el campo vacio
 	if(palabra == ""){
 		palabra = "0";
@@ -67,27 +85,36 @@ function VerificarPalabra(palabra,id) {
 		
 		//comprobamos si la palabra es correcta
 		if(bienMal(palabra,res[0]['Palabra'])){
-			$('.item')[roscoJuego1[posicionRosco]["Relacion"]].setAttribute('class','item item--success');
+			$('.item')[roscoJuego1[posicionRosco1]["Relacion"]].setAttribute('class','item item--success');
 			aciertos++;
-			
+			fallar = false;
 		}else{
-			$('.item')[roscoJuego1[posicionRosco]["Relacion"]].setAttribute('class','item item--failure');
+			$('.item')[roscoJuego1[posicionRosco1]["Relacion"]].setAttribute('class','item item--failure');
 			fallos++;
+			fallar = true;
 		}
 		//fin del juego
-		if($('.sp1').text()==0){
+		if($(score).text()==0){
 			//console.log("fin");
 			endGame();
 		}
 		//Eliminar palabra 
-		roscoJuego1.splice(posicionRosco,1);
+		roscoJuego1.splice(posicionRosco1,1);
 		//correccion de la posicion del rosco
-		if(posicionRosco == roscoJuego1.length || posicionRosco>roscoJuego1.length){
-			posicionRosco = 0;
+		if(posicionRosco1 == roscoJuego1.length || posicionRosco1>roscoJuego1.length){
+			posicionRosco1 = 0;
 		}
 		//Pasamos de palabra
-		if($('.sp1').text()!=0){
-			pasaPalabra(false);
+		if($(score).text()!=0){
+			
+			if(fallar){
+				console.log("fallo");
+				pasaPalabra(false,jugador);
+			}else{
+				console.log("acierto");
+				avanzarPalabra(false,jugador);
+			}
+			
 		}
 	 })
 	 .fail(function(jqXHR,textStatus){
@@ -104,27 +131,104 @@ function generarDescripcion(posicionActual) {
 }
 
 //comparar lo escrito con la palabra 
-function enviar() {
+function enviar(jugador) {
 	//console.log($('#user-answer').val());
-	VerificarPalabra($('#user-answer').val(),roscoJuego1[posicionRosco]["id"]);
+	VerificarPalabra($('#user-answer').val(),roscoJuego1[posicionRosco1]["id"],jugador);
 
 }
 //pasarpalabra en funcion de si aun no la a "enviado"
-function pasaPalabra(continuar){
-	if(continuar){
-		if(roscoJuego1.length-1==posicionRosco){
-			posicionRosco = 0;
+function pasaPalabra(continuar,jugador){
+	if(jugador==1){
+		console.log("Pasapalabra Juagador1");
+		//j1
+		if(continuar){
+			if(roscoJuego1.length-1==posicionRosco1){
+				posicionRosco1 = 0;
+			}else{
+				posicionRosco1++;
+			}
+			generarDescripcion(posicionRosco1);
+			//limpiamos el input
+			$('#user-answer').val('');
+			mostrarOcultar(jugador);
 		}else{
-			posicionRosco++;
+			generarDescripcion(posicionRosco1);
+			//limpiamos el input
+			$('#user-answer').val('');
+			continuar = true;
+			mostrarOcultar(jugador);
 		}
-		generarDescripcion(posicionRosco);
-		//limpiamos el input
-		$('#user-answer').val('');
-	}else{
-		generarDescripcion(posicionRosco);
-		//limpiamos el input
-		$('#user-answer').val('');
-		continuar = true;
+		
+		
+	}else if(jugador==2){
+		console.log("Pasapalabra Juagador2");
+		//j2
+		if(continuar){
+			if(roscoJuego2.length-1==posicionRosco2){
+				posicionRosco2 = 0;
+			}else{
+				posicionRosco2++;
+			}
+			generarDescripcion(posicionRosco2);
+			//limpiamos el input
+			$('#user-answer').val('');
+			mostrarOcultar(jugador);
+		}else{
+			generarDescripcion(posicionRosco2);
+			//limpiamos el input
+			$('#user-answer').val('');
+			continuar = true;
+			mostrarOcultar(jugador);
+		}
+		
+		
+	}
+}
+//pasarpalabra del boton enviar
+function avanzarPalabra(continuar,jugador){
+	if(jugador==1){
+		console.log("AvanzarPalabra Juagador1");
+		//j1
+		if(continuar){
+			if(roscoJuego1.length-1==posicionRosco1){
+				posicionRosco1 = 0;
+			}else{
+				posicionRosco1++;
+			}
+			generarDescripcion(posicionRosco1);
+			//limpiamos el input
+			$('#user-answer').val('');
+			
+		}else{
+			generarDescripcion(posicionRosco1);
+			//limpiamos el input
+			$('#user-answer').val('');
+			continuar = true;
+		}
+		
+		
+	}else if(jugador==2){
+		console.log("AvanzarPalabra Juagador2");
+		//j2
+		if(continuar){
+			if(roscoJuego2.length-1==posicionRosco2){
+				posicionRosco2 = 0;
+			}else{
+				posicionRosco2++;
+			}
+			generarDescripcion(posicionRosco2);
+			//limpiamos el input
+			$('#user-answer').val('');
+			
+		}else{
+			generarDescripcion(posicionRosco2);
+			//limpiamos el input
+			$('#user-answer').val('');
+			continuar = true;
+		}
+
+		
+		
 	}
 	
 }

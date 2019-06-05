@@ -94,14 +94,14 @@
                     <p>El juego ni mayusculas ni las tildes no hay que colocarlas o la palabra sera un fallo</p>
                 </div>
                 <!-- Cotroles jugar -->
-                <div id="question-controls" class="question-controls" >
+                <div id="question-controls" class="question-controls q1" >
                     <span id="hint" class="hint">"Empieza/contiene"</span>
                     <p id="definition" class="definition">"Definicion"</p>
         
                     <input id="user-answer" type="text" placeholder="Introduce tu respuesta">
         
-                    <a id="send" class="btn btn--blue" href="#">Enviar</a>
-                    <a id="pasapalabra" class="btn" href="#">Pasapalabra</a>
+                    <a id="send1" class="btn btn--blue" href="#">Enviar</a>
+                    <a id="pasapalabra1" class="btn" href="#">Pasapalabra</a>
                 </div>
                 <!-- controles final -->
                 <div class="end-game" > 
@@ -112,14 +112,14 @@
             </div>
             <div class="controls-container">
                 <!-- Cotroles jugar -->
-                <div id="question-controls" class="question-controls" >
-                    <span id="hint" class="hint">"Empieza/contiene"</span>
-                    <p id="definition" class="definition">"Definicion"</p>
+                <div id="question-controls" class="question-controls q2" >
+                    <span id="hint" class="hint">Esperando turno</span>
+                    <p id="definition" class="definition"></p>
         
                     <input id="user-answer" type="text" placeholder="Introduce tu respuesta">
         
-                    <a id="send" class="btn btn--blue" href="#">Enviar</a>
-                    <a id="pasapalabra" class="btn" href="#">Pasapalabra</a>
+                    <a id="send2" class="btn btn--blue" href="#">Enviar</a>
+                    <a id="pasapalabra2" class="btn" href="#">Pasapalabra</a>
                 </div>
                 <!-- controles final -->
                 <div class="end-game" > 
@@ -138,7 +138,7 @@ echo"
         $('.welcome-user').hide();
         /*$('.question-controls').hide();*/
         $('.end-game').hide();
-        $('#reset').hide();
+        /*$('#reset').hide();*/
         $('#begin').on('click',inicio);
         $('#reset').on('click',reset);
         if('".$dificultad."'=='0'){
@@ -150,9 +150,20 @@ echo"
         if('".$dificultad."'=='2'){
             $('.timer').text('180');
         }
-        $('#send').on('click',enviar);
-        $('#pasapalabra').on('click',function(){
-            pasaPalabra(true);    
+        /*Botones enviar*/
+        $('#send1').on('click',function(){
+            enviar(1);    
+        });
+        $('#send2').on('click',function(){
+            enviar(2);    
+        });
+        /*Botones pasapalabra*/
+        
+        $('#pasapalabra1').on('click',function(){
+            pasaPalabra(true,1);    
+        });
+        $('#pasapalabra2').on('click',function(){
+            pasaPalabra(true,2);    
         });
     }; 
 </script>";

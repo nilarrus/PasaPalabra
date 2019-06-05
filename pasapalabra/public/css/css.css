@@ -32,9 +32,9 @@ body{
     padding: 10%;
 }
 .c2{
-    font-size: 80%;
+    font-size: 70%;
     padding-left: 2%;
-    margin-top: 10%;
+    margin-top: 8%!important;
     height: 70%!important   ;
 }
 .inicio{
@@ -49,4 +49,7 @@ body{
 .marcador{
     top:60%;
     
+}   
+.definition{
+    height: 80px;
 }
