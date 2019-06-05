@@ -249,14 +249,22 @@ function tiempoJuego(timeTotal){
 		tLeft -=1;
 	},1000);
 }
+
+
 //boton inicio del juego
 function inicio() {
+	var roscoInvisible=document.getElementsByClassName("game")[0];
+	roscoInvisible.style.visibility = 'visible';
 	$('.welcome-user').hide();//ocultamos el welcome + inicio 
 	$('.question-controls').show();//mostramos los controles del juego
 	tInicial = $('.timer').text();
+	$("#begin").hide();
 	//tiempoJuego(tInicial); 
 	generarDescripcion(0);
+
 }
+
+
 /* ruta muerta
 
 
