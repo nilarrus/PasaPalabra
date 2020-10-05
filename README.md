@@ -1,5 +1,4 @@
 # PasaPalabra
-Proyecto final del GS AWS
 ## Features 
 
    1. Base de datos.
